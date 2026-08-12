@@ -1,0 +1,2688 @@
+{
+  "@context": {
+    "adms": "http://www.w3.org/ns/adms#",
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcatap": "http://data.europa.eu/r5r/",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dct": "http://purl.org/dc/terms/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "gsp": "http://www.opengis.net/ont/geosparql#",
+    "locn": "http://www.w3.org/ns/locn#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schema1": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "time1": "http://www.w3.org/2006/time",
+    "vann": "http://purl.org/vocab/vann/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "void": "http://rdfs.org/ns/void#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/52977cb7-c0c5-4312-afe2-9d383e6d2903",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/52977cb7-c0c5-4312-afe2-9d383e6d2903/download/2015_negative_employers_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "430165.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2016-10-21T14:52:29.695673"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:28:46.488621"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2015-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2015, par lieu d’affaires"
+        },
+        {
+          "@language": "en",
+          "@value": "2015-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2015, by business location"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3528961a-59e6-489f-a91d-7bdc0b0f8f84",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3528961a-59e6-489f-a91d-7bdc0b0f8f84/download/2017q1q2_negative_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "174150.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2017-11-10T15:40:15.397061"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T21:32:13.841082"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2017Q1Q2-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2017(January-June), by stream, National Occupational Classification (NOC) 2011 and business location "
+        },
+        {
+          "@language": "fr",
+          "@value": "2017Q1Q2-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2017 (Janvier -Juin), par volet,classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/dc04d25f-7715-4716-97d8-0971d1ea96a8",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/dc04d25f-7715-4716-97d8-0971d1ea96a8/download/tfwp_2019q2_employer_negative_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "83453.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-11-12T22:01:05.465161"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:28:54.502161"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2019Q2-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2019 (April-June)"
+        },
+        {
+          "@language": "fr",
+          "@value": "2019Q2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) négative en 2019 (Avril-Juin), par volet, classification nationale des professions (CNP) 2011 et lieu de affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f685f4a9-e5c8-48d9-ac60-f556acb59722",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f685f4a9-e5c8-48d9-ac60-f556acb59722/download/tfwp_2024q4_neg_fr.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-03-18T19:40:59.918838"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-03-18T19:40:59.901378"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2024T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, octobre à décembre 2024"
+        },
+        {
+          "@language": "en",
+          "@value": "2024Q4- Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, October to December 2024"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/0b7f62a5-c8d8-41ec-a5ca-bd4123b8c3a6",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/0b7f62a5-c8d8-41ec-a5ca-bd4123b8c3a6/download/tfwp_2019q3_negative_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "116648.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-12-20T20:33:00.840378"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:57:20.791846"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2019Q3-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2019 (July-September)"
+        },
+        {
+          "@language": "fr",
+          "@value": "2019Q3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) négative en 2019 (juillet-septembre), par volet, classification nationale des professions (CNP) 2011 et lieu de affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/51f09276-025d-4572-9a96-06faaa07710a",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/51f09276-025d-4572-9a96-06faaa07710a/download/tfwp_2019q2_employer_negative_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "75686.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-11-12T22:01:05.465158"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T02:17:11.950957"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2019Q2-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2019 (April-June)"
+        },
+        {
+          "@language": "fr",
+          "@value": "2019Q2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) négative en 2019 (Avril-Juin), par volet, classification nationale des professions (CNP) 2011 et lieu de affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/251619ca-6541-499f-87c0-6860bf8b04fe",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/251619ca-6541-499f-87c0-6860bf8b04fe/download/negative_employers_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "107268.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2016-10-21T11:30:21.777968"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T21:32:13.840568"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2014-Employeurs ayant soumis une demande d'Étude d'impact sur le marché du travail (EIMT) et ayant obtenu une EIMT négative entre le 20 juin et 31 décembre 2014 inclusivement, par lieu d’affaires"
+        },
+        {
+          "@language": "en",
+          "@value": "2014-Employers who have requested a Labour Market Impact Assessment (LMIA) and were issued a negative LMIA between June 20 and December 31, 2014 inclusively, by business location"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5a07f5a6-1685-48f8-a229-ddf5bfcf48b6",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5a07f5a6-1685-48f8-a229-ddf5bfcf48b6/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2021-employer-listq1-2021tfwp_2021q.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "49386.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2021-06-17T18:30:51.272238"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:58:02.175933"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2021T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2021"
+        },
+        {
+          "@language": "en",
+          "@value": "2021Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2021"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3aa29d6f-1b2c-46e7-8c85-5b8123d78c6b",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3aa29d6f-1b2c-46e7-8c85-5b8123d78c6b/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2021-employer-list2021q4finaltfwp_2.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "24080.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2022-04-21T21:52:06.832262"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:57:30.810856"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2021Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, October to December 2021"
+        },
+        {
+          "@language": "fr",
+          "@value": "2021T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, octobre à decembre 2021"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b26fc4c6-d6e2-490d-a7c0-6bdf07e34e85",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b26fc4c6-d6e2-490d-a7c0-6bdf07e34e85/download/2018q2_negative_employer_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "67147.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2018-09-27T19:42:07.019408"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:08:08.809070"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2018Q2-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in  2018 (April-June ), by stream, National Occupational Classification (NOC) 2011 and business location"
+        },
+        {
+          "@language": "fr",
+          "@value": "2018Q2-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2018 (Avril -Juin), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires "
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/39dd1c6c-6a34-471b-a4a3-3847d799a320",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/39dd1c6c-6a34-471b-a4a3-3847d799a320/download/2018q1_negative_employer_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "61026.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2018-09-27T19:42:07.019399"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T21:32:13.841443"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2018Q1-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2018 (Janvier -Mars), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires "
+        },
+        {
+          "@language": "en",
+          "@value": "2018Q1-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in  2018 (January-March ), by stream, National Occupational Classification (NOC) 2011 and business location"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6022699b-5213-4933-a58d-6bdc7cce78c3",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6022699b-5213-4933-a58d-6bdc7cce78c3/download/tfwp_2025q2_neg_en.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-10-23T18:41:07.077988"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-10-23T18:41:07.053511"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2025T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, avril à juin 2025"
+        },
+        {
+          "@language": "en",
+          "@value": "2025Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, April to June 2025"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4a8d6984-3485-4ef0-a758-7370cd5e0894",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4a8d6984-3485-4ef0-a758-7370cd5e0894/download/tfwp_2019q1_employer_negative_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "76246.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-11-12T22:01:05.465150"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:13:51.419834"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2019Q1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative en 2019 (janvier-mars), par volet, classification nationale des professions (CNP) 2011 et lieu de affaires"
+        },
+        {
+          "@language": "en",
+          "@value": "2019Q1-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2019 (January-March)"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/545cf9ce-18fa-4f09-8490-0b5730164a02",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/545cf9ce-18fa-4f09-8490-0b5730164a02/download/tfwp_2019q3_negative_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "103223.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-12-20T20:33:00.840372"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:40:55.017726"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2019Q3-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2019 (July-September)"
+        },
+        {
+          "@language": "fr",
+          "@value": "2019Q3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) négative en 2019 (juillet-septembre), par volet, classification nationale des professions (CNP) 2011 et lieu de affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/01e88f4d-6d4a-412d-804b-776119d5b2ca",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/01e88f4d-6d4a-412d-804b-776119d5b2ca/download/2015_negative_employers_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "433724.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2016-10-21T14:52:29.695718"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T21:46:49.061822"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2015-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2015, by business location"
+        },
+        {
+          "@language": "fr",
+          "@value": "2015-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2015, par lieu d’affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/e7f2307e-9b25-4323-adb0-e95ea02f4d25",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/e7f2307e-9b25-4323-adb0-e95ea02f4d25/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q4tfwp_2020q4.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "40832.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2021-03-18T18:42:06.079324"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:08:49.936137"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2020T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, octobre à décembre 2020"
+        },
+        {
+          "@language": "en",
+          "@value": "2020Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, October to December 2020"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5a24f2ae-133e-4642-9181-eb683c7de6a7",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5a24f2ae-133e-4642-9181-eb683c7de6a7/download/2018q1_negative_employer_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "55185.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2018-09-27T19:32:03.080485"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:39:22.036222"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2018Q1-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2018 (Janvier -Mars), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires "
+        },
+        {
+          "@language": "en",
+          "@value": "2018Q1-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in  2018 (January-March ), by stream, National Occupational Classification (NOC) 2011 and business location"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6a36e73c-b2ac-438e-b603-56ceea01c56b",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6a36e73c-b2ac-438e-b603-56ceea01c56b/download/tfwp_2025q1_neg_en.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-06-19T18:41:17.936454"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-06-19T18:41:17.915558"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2025Q1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, Janvier à mars 2025"
+        },
+        {
+          "@language": "en",
+          "@value": "2025Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, January to March 2025"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/214fe121-aaba-464f-96dc-a225e5b4d114",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/214fe121-aaba-464f-96dc-a225e5b4d114/download/tfwp_2019q4_negative_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "138745.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2020-02-27T17:01:45.305528"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:11:37.238001"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2019Q4-Employeurs ayant obtenu une étude d’impact sur le marché du travail (EIMT) négative en 2019 (octobre-décembre), par volet, classification nationale des professions (CNP) 2011 et lieu de affaires "
+        },
+        {
+          "@language": "en",
+          "@value": "2019Q4-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2019 (October-December) "
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/c3a55d04-bd4d-4b1f-8c6a-6f2c9fd4c62d",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/c3a55d04-bd4d-4b1f-8c6a-6f2c9fd4c62d/download/tfwp_2024q1_neg_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "62607.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-06-20T19:40:31.959163"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:24:46.204180"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2024Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2024"
+        },
+        {
+          "@language": "fr",
+          "@value": "2024T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2024 "
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1e854188-18c4-4cbe-b4e0-88561955fe05",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1e854188-18c4-4cbe-b4e0-88561955fe05/download/tfwp_2026q1_neg_en.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-07-22T13:32:02.000071"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-07-22T13:32:01.940666"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2026T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, janvier à mars 2026"
+        },
+        {
+          "@language": "en",
+          "@value": "2026Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, January to March 2026"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5491e558-dc3b-48ca-a9e4-08c76a1dbd4c",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5491e558-dc3b-48ca-a9e4-08c76a1dbd4c/download/2017q3_negative_employer_stream_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "67898.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2018-01-23T22:00:11.203310"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:25:05.282327"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2017Q3-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2017 (Juillet -Septembre), par volet,  classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        },
+        {
+          "@language": "en",
+          "@value": "2017Q3-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2017(July-September), by stream,  National Occupational Classification (NOC) 2011 and business location"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f1b6fd7d-8417-4130-bb5f-20e1220c9dec",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f1b6fd7d-8417-4130-bb5f-20e1220c9dec/download/tfwp_2022q2_negative_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "34013.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2022-10-19T18:12:06.720275"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.157229"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2022T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, Avril à Juin 2022"
+        },
+        {
+          "@language": "en",
+          "@value": "2022Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, April to June 2022"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b81003de-a54e-4eae-91ee-2d466dfa9202",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b81003de-a54e-4eae-91ee-2d466dfa9202/download/2018q2_negative_employer_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "60934.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2018-09-27T19:42:07.019405"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:57:49.504141"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2018Q2-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2018 (Avril -Juin), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires "
+        },
+        {
+          "@language": "en",
+          "@value": "2018Q2-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in  2018 (April-June ), by stream, National Occupational Classification (NOC) 2011 and business location"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1da135e7-a84b-42f2-b579-b195c3a81b4b",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1da135e7-a84b-42f2-b579-b195c3a81b4b/download/tfwp_2024q3_neg_fr.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.189319"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.160495"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2024Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, July to September 2024"
+        },
+        {
+          "@language": "fr",
+          "@value": "2024T3-Employeurs ayant reçu une évaluation d'impact sur le marché du travail (EIMT) négative par volet de programme, Classification nationale des professions (CNP) 2021 et emplacement de l'entreprise, juillet à septembre 2024"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/82ab1f22-17b8-4a97-aa9c-9231335a15bf",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/82ab1f22-17b8-4a97-aa9c-9231335a15bf/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q22020q2csv202.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "23634.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2020-09-24T15:30:17.683599"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:16:58.389645"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2020T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, avril à juin 2020"
+        },
+        {
+          "@language": "en",
+          "@value": "2020Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, April to June 2020"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/59d3b563-600c-486f-bec8-c8095ed77d8d",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/59d3b563-600c-486f-bec8-c8095ed77d8d/download/tfwp_2026q1_neg_fr.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-07-22T13:32:02.000077"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-07-22T13:32:01.943783"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2026Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, January to March 2026"
+        },
+        {
+          "@language": "fr",
+          "@value": "2026T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, janvier à mars 2026"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f7fbb221-758d-4a5e-ab61-967d9fb19ddb",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://www.esdc.gc.ca/ouvert-open/bca-seb/imt-lmi/TFWP_2021Q2_Negative_FR.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2021-09-03T20:54:56.029710"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.156795"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2021Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, April to June 2021"
+        },
+        {
+          "@language": "fr",
+          "@value": "2021T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, avril à juin 2021"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/a4c40bf2-0370-4e0d-ac16-aadc00cdbadc",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/a4c40bf2-0370-4e0d-ac16-aadc00cdbadc/download/tfwp_2025q2_neg_fr.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-10-23T18:41:07.077992"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-10-23T18:41:07.057783"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2025Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, April to June 2025"
+        },
+        {
+          "@language": "fr",
+          "@value": "2025T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, avril à juin 2025"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/69c13dca-23ac-4efc-bc84-6c165b9e396e",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/69c13dca-23ac-4efc-bc84-6c165b9e396e/download/negative_employers_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "108609.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2016-10-21T11:30:21.778002"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:57:50.752370"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2014-Employeurs ayant soumis une demande d'Étude d'impact sur le marché du travail (EIMT) et ayant obtenu une EIMT négative entre le 20 juin et 31 décembre 2014 inclusivement, par lieu d’affaires"
+        },
+        {
+          "@language": "en",
+          "@value": "2014-Employers who have requested a Labour Market Impact Assessment (LMIA) and were issued a negative LMIA between June 20 and December 31, 2014 inclusively, by business location"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/9ed37163-3ecc-4f85-90b6-38129ce01276",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/9ed37163-3ecc-4f85-90b6-38129ce01276/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2021-employer-listq1-2021tfwp_2021q.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "43753.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2021-06-17T18:40:52.461785"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:03:03.516629"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2021Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2021"
+        },
+        {
+          "@language": "fr",
+          "@value": "2021T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2021"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8c5f576d-66d8-4d3d-9c38-c55af142b385",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8c5f576d-66d8-4d3d-9c38-c55af142b385/download/2017q1q2_negative_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "190137.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2017-11-10T15:40:15.397076"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:11:59.629946"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2017Q1Q2-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2017(January-June), by stream, National Occupational Classification (NOC) 2011 and business location "
+        },
+        {
+          "@language": "fr",
+          "@value": "2017Q1Q2-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2017 (Janvier -Juin), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/9e7ea9c6-5c13-4ebd-a54a-32c30d167d5a",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/9e7ea9c6-5c13-4ebd-a54a-32c30d167d5a/download/tfwp_2023q4_neg_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "46986.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-04-18T14:31:58.578566"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:22:55.764574"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2023Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, October to December 2023"
+        },
+        {
+          "@language": "fr",
+          "@value": "2023T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, octobre à décembre 2023"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f763112a-56de-4566-a1b5-1201444870a1",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f763112a-56de-4566-a1b5-1201444870a1/download/2017q3_negative_employer_stream_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "61626.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2018-01-23T21:50:12.582545"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:18:14.476127"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2017Q3-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2017 (Juillet -Septembre), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        },
+        {
+          "@language": "en",
+          "@value": "2017Q3-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2017(July-September), by stream,  National Occupational Classification (NOC) 2011 and business location "
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/071ad9cc-8fb2-4415-b014-3741e324682e",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/071ad9cc-8fb2-4415-b014-3741e324682e/download/2018q3_negative_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "51899.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-02-01T14:40:47.979722"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T02:17:11.950487"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2018Q3-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2018 (juillet-septembre), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        },
+        {
+          "@language": "en",
+          "@value": "2018Q3-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2018 (July-September), by stream, National Occupational Classification (NOC) 2011 and business location"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/92107401-66e8-4556-88be-e0a2eda2dc18",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/92107401-66e8-4556-88be-e0a2eda2dc18/download/tfwp_2022q3_negative_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "35707.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2022-12-23T19:01:58.547704"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:08:59.356390"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2022T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, juillet à septembre 2022"
+        },
+        {
+          "@language": "en",
+          "@value": "2022Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, July to September 2022"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/438f75b8-58a3-4975-a0d4-ce26ed2fb4c6",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/438f75b8-58a3-4975-a0d4-ce26ed2fb4c6/download/tfwp_2019q1_employer_negative_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "69275.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-11-12T21:51:01.996291"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T02:17:11.950812"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2019Q1-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2019 (January-March)"
+        },
+        {
+          "@language": "fr",
+          "@value": "2019Q1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative en 2019 (janvier-mars), par volet, classification nationale des professions (CNP) 2011 et lieu de affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f731e9e9-273d-486a-8551-10fbe65be5f5",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://www.esdc.gc.ca/ouvert-open/bca-seb/ae-ei/TFWP_2021Q3_Negative_EN.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2021-12-10T20:51:56.320463"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.156867"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2021T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, juillet à septembre 2021"
+        },
+        {
+          "@language": "en",
+          "@value": "2021Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, July to September 2021"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3d2b9b57-0b6a-47d3-b38c-ef0c25e1b4e6",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3d2b9b57-0b6a-47d3-b38c-ef0c25e1b4e6/download/tfwp_2024q2_neg_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "65954.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-10-24T20:30:35.939645"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T22:41:40.635641"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2024T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, avril à juin 2024"
+        },
+        {
+          "@language": "en",
+          "@value": "2024Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, April to June 2024"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8e3ff11e-5e1d-43a4-bb78-927492ac428b",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8e3ff11e-5e1d-43a4-bb78-927492ac428b/download/tfwp_2022q4_neg_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "40548.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2023-03-21T14:31:42.319077"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.157527"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2022T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, octobre à decembre 2022"
+        },
+        {
+          "@language": "en",
+          "@value": "2022Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, October to December 2022"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5bb40b78-46ac-430f-b1b9-b8ed25632bc9",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5bb40b78-46ac-430f-b1b9-b8ed25632bc9/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q22020q2csv202.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "21327.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2020-09-24T15:30:17.683593"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:58:03.511217"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2020T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, avril à juin 2020"
+        },
+        {
+          "@language": "en",
+          "@value": "2020Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, April to June 2020"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/789760d6-2227-41ab-a84c-d4465c564d0f",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/789760d6-2227-41ab-a84c-d4465c564d0f/download/tfwp_2020q1_negative_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "123867.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2020-05-29T21:41:00.702075"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T21:32:13.842768"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2020T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2020\t"
+        },
+        {
+          "@language": "en",
+          "@value": "2020Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2020"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/689dc7db-c1dd-438c-9fb7-8136eca335ae",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/689dc7db-c1dd-438c-9fb7-8136eca335ae/download/tfwp_2024q3_neg_en.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.189312"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.159448"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2024Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, July to September 2024"
+        },
+        {
+          "@language": "fr",
+          "@value": "2024T3-Employeurs ayant reçu une évaluation d'impact sur le marché du travail (EIMT) négative par volet de programme, Classification nationale des professions (CNP) 2021 et emplacement de l'entreprise, juillet à septembre 2024"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/94a0dbee-e9d9-4492-ab52-07f0f0fb255b",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/94a0dbee-e9d9-4492-ab52-07f0f0fb255b/download/tfwp_2022q3_negative_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "34676.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2022-12-23T18:40:54.469054"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T02:17:11.952769"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2022T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, juillet à septembre 2022"
+        },
+        {
+          "@language": "en",
+          "@value": "2022Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, July to September 2022"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/93fed83b-266b-45ba-aa65-4f356349f9e7",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/93fed83b-266b-45ba-aa65-4f356349f9e7/download/tfwp_2020q1_negative_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "108265.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2020-05-29T21:31:02.849915"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:20:52.340682"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2020T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2020"
+        },
+        {
+          "@language": "en",
+          "@value": "2020Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2020"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6b26adc2-19f3-4ff6-b5aa-e721c8346433",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6b26adc2-19f3-4ff6-b5aa-e721c8346433/download/2018q4_negative_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "54671.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-03-13T18:10:42.315572"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T21:32:13.841974"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2018Q4-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2018 (octobre-décembre), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        },
+        {
+          "@language": "en",
+          "@value": "2018Q4-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2018 (October-December)"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b6fdd154-0077-418b-9bfe-267a2cf6edb5",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b6fdd154-0077-418b-9bfe-267a2cf6edb5/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2021-employer-list2021q4finaltfwp_2.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "23442.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2022-04-21T21:52:02.357739"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:58:40.725871"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2021Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, October to December 2021"
+        },
+        {
+          "@language": "fr",
+          "@value": "2021T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, octobre à decembre 2021"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/fadf5118-d5ec-4cfe-b36b-68394ae2a39a",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/fadf5118-d5ec-4cfe-b36b-68394ae2a39a/download/2018q3_negative_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "56799.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-02-01T14:40:47.979730"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:57:48.202371"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2018Q3-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2018 (juillet-septembre), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        },
+        {
+          "@language": "en",
+          "@value": "2018Q3-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2018 (July-September), by stream, National Occupational Classification (NOC) 2011 and business location"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/bf402b35-9270-4608-b244-3741a21be2fd",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/bf402b35-9270-4608-b244-3741a21be2fd/download/tfwp_2024q2_neg_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "69072.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-10-24T20:30:35.939650"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T22:41:40.635750"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2024T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, avril à juin 2024"
+        },
+        {
+          "@language": "en",
+          "@value": "2024Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, April to June 2024"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8a6d1350-859c-4239-99a6-f67547b33473",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8a6d1350-859c-4239-99a6-f67547b33473/download/tfwp_2023q4_neg_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "48352.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-04-18T14:31:58.578574"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:14:03.858407"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2023T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, octobre à décembre 2023"
+        },
+        {
+          "@language": "en",
+          "@value": "2023Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, October to December 2023"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/39f46bb3-f9cd-4111-a2d6-dd64c8381902",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/39f46bb3-f9cd-4111-a2d6-dd64c8381902/download/tfwp_2020q3_negative_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "59422.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2020-12-04T17:31:29.725639"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:13:43.262653"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2020Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, July to September 2020"
+        },
+        {
+          "@language": "fr",
+          "@value": "2020T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, juillet à septembre 2020\t"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/207aa4c9-78c8-4c5c-bd92-5b7790dcab56",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/207aa4c9-78c8-4c5c-bd92-5b7790dcab56/download/2017q4_negative_employer_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "60407.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2018-10-26T15:50:23.378183"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:10:35.651770"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2017Q4-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2017 (October-December), by stream, National Occupational Classification (NOC) 2011 and business location"
+        },
+        {
+          "@language": "fr",
+          "@value": "2017Q4-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2017 (Octobre-décembre), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/ca5f3dd0-654c-4793-836e-3e9495a5600c",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://www.esdc.gc.ca/ouvert-open/bca-seb/ae-ei/TFWP_2021Q3_Negative_FR.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2021-12-10T20:51:56.320471"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.156928"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2021Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, July to September 2021"
+        },
+        {
+          "@language": "fr",
+          "@value": "2021T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, juillet à septembre 2021"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/7be521ea-2055-4184-9d45-56cbf12fb255",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/7be521ea-2055-4184-9d45-56cbf12fb255/download/2016_negative_employer_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "374967.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2017-08-04T10:10:13.259431"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:58:08.002008"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2016-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2016, by National Occupational Classification (NOC) 2011 and business location "
+        },
+        {
+          "@language": "fr",
+          "@value": "2016-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2016, par classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/69d1bf1d-a525-4f81-baa2-c2b700fc460a",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/69d1bf1d-a525-4f81-baa2-c2b700fc460a/download/tfwp_2025q1_neg_fr.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-06-19T18:41:17.936460"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-06-19T18:41:17.916829"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2025Q1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, Janvier à mars 2025"
+        },
+        {
+          "@language": "en",
+          "@value": "2025Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, January to March 2025"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/99615d96-207b-4fb6-83b5-564dfdc54003",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/99615d96-207b-4fb6-83b5-564dfdc54003/download/tfwp_2025q4_neg_fr.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-03-16T15:01:11.692942"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-03-16T15:01:11.645259"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2025T4- Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, octobre à décembre 2025"
+        },
+        {
+          "@language": "en",
+          "@value": "2025Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, October to December 2025"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4b3ad4c2-cbf7-4285-a1a9-7aedc37cab0a",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4b3ad4c2-cbf7-4285-a1a9-7aedc37cab0a/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q4tfwp_2020q4.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "39764.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2021-03-18T18:42:06.079318"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T21:32:13.843130"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2020Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, October to December 2020"
+        },
+        {
+          "@language": "fr",
+          "@value": "2020T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, octobre à décembre 2020"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f7d8ae52-1bbf-41b2-8385-6f08b7d0c8fd",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f7d8ae52-1bbf-41b2-8385-6f08b7d0c8fd/download/2017q4_negative_employer_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "66377.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2018-10-26T16:00:24.021996"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:08:51.194717"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2017Q4-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2017 (October-December), by stream, National Occupational Classification (NOC) 2011 and business location"
+        },
+        {
+          "@language": "fr",
+          "@value": "2017Q4-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2017 (Octobre-décembre), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/44285e45-f241-4dc3-9b87-4f1c25c36cf9",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/44285e45-f241-4dc3-9b87-4f1c25c36cf9/download/tfwp_2022q1_negative_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "28090.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2022-08-05T18:15:58.983561"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.157168"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2022T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2022"
+        },
+        {
+          "@language": "en",
+          "@value": "2022Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2022"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1bcfe8d1-0ec8-4494-b895-d2458520064b",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1bcfe8d1-0ec8-4494-b895-d2458520064b/download/tfwp_2024q1_neg_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "63004.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-06-20T19:40:31.959168"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:24:47.478525"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2024Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2024"
+        },
+        {
+          "@language": "fr",
+          "@value": "2024T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2024"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4f9a23d3-c6a6-4472-94ad-ec9646351539",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4f9a23d3-c6a6-4472-94ad-ec9646351539/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q22020q2csv202.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "21327.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2021-09-03T20:54:56.029704"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:57:01.130592"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2021T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, avril à juin 2021"
+        },
+        {
+          "@language": "en",
+          "@value": "2021Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, April to June 2021"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/a7069424-50fe-464c-bb1e-130d8a185c2e",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/a7069424-50fe-464c-bb1e-130d8a185c2e/download/tfwp_2022q2_negative_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "34717.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2022-10-19T18:12:06.720286"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T02:17:11.952682"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2022T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, Avril à Juin 2022"
+        },
+        {
+          "@language": "en",
+          "@value": "2022Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, April to June 2022"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/dce97de0-120f-4f85-bfc7-e0bd95a85433",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/dce97de0-120f-4f85-bfc7-e0bd95a85433/download/tfwp_2025q3_neg_en.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-01-07T20:51:26.792634"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-01-07T20:51:26.771262"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2025Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, July to September 2025"
+        },
+        {
+          "@language": "fr",
+          "@value": "2025T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, juillet à septembre 2025"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3fa31e47-cb51-4556-9096-358ea06acc38",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3fa31e47-cb51-4556-9096-358ea06acc38/download/tfwp_2023q1_neg_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "37705.0"
+      },
+      "dct:format": "XLS",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2023-06-22T17:21:39.629966"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.157586"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2023T1- Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2023"
+        },
+        {
+          "@language": "en",
+          "@value": "2023Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2023"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/73738a26-dbe3-4cc7-b60a-09decc3eb819",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/73738a26-dbe3-4cc7-b60a-09decc3eb819/download/2018q4_negative_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "60210.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2019-03-13T18:10:42.315581"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-20T21:46:49.062939"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2018Q4-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2018 (October-December)"
+        },
+        {
+          "@language": "fr",
+          "@value": "2018Q4-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2018 (octobre-décembre), par volet, classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/bc6ad004-018d-484f-bf41-c207363db511",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/bc6ad004-018d-484f-bf41-c207363db511/download/tfwp_2023q2_neg_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "40254.0"
+      },
+      "dct:format": "XLS",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2023-09-15T18:02:05.039654"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.157764"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2023Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, April to June 2023"
+        },
+        {
+          "@language": "fr",
+          "@value": "2023T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, avril à juin 2023"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5223731d-815d-4112-a918-72354c84831c",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5223731d-815d-4112-a918-72354c84831c/download/tfwp_2023q2_neg_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "38627.0"
+      },
+      "dct:format": "XLS",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2023-09-15T18:02:05.039645"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.157704"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2023T2-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, avril à juin 2023"
+        },
+        {
+          "@language": "en",
+          "@value": "2023Q2-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, April to June 2023"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/2430b2e2-6e21-4045-8fc4-030c63db4287",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/2430b2e2-6e21-4045-8fc4-030c63db4287/download/tfwp_2022q1_negative_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "27382.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2022-08-05T18:15:58.983549"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.157108"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2022Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2022"
+        },
+        {
+          "@language": "fr",
+          "@value": "2022T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2022"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b5432d4f-403f-44a2-b952-1eb2e65faa76",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b5432d4f-403f-44a2-b952-1eb2e65faa76/download/tfwp_2025q4_neg_en.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-03-16T15:01:11.692938"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-03-16T15:01:11.642206"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2025T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, octobre à décembre 2025"
+        },
+        {
+          "@language": "en",
+          "@value": "2025Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, October to December 2025"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1c797408-70b8-4ac2-9b29-1de0bb9f2c22",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1c797408-70b8-4ac2-9b29-1de0bb9f2c22/download/tfwp_2019q4_negative_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "155553.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2020-02-27T17:01:45.305536"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T02:17:11.951301"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2019Q4-Employeurs ayant obtenu une étude d’impact sur le marché du travail (EIMT) négative en 2019 (octobre-décembre), par volet, classification nationale des professions (CNP) 2011 et lieu de affaires "
+        },
+        {
+          "@language": "en",
+          "@value": "2019Q4-Employers who were issued a negative Labour Market Impact Assessment (LMIA) by stream, National Occupational Classification (NOC) 2011 and business location in 2019 (October-December) "
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/813a726a-fb58-48ad-81ff-28f1b663ece2",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/813a726a-fb58-48ad-81ff-28f1b663ece2/download/tfwp_2025q3_neg_fr.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-01-07T20:51:26.792638"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-01-07T20:51:26.773762"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2025Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, July to September 2025"
+        },
+        {
+          "@language": "fr",
+          "@value": "2025T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, juillet à septembre 2025"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/9ba7fa2f-3b64-4c82-8c85-c1f54b1ec7f1",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/9ba7fa2f-3b64-4c82-8c85-c1f54b1ec7f1/download/tfwp_2023q1_neg_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "39479.0"
+      },
+      "dct:format": "XLS",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2023-06-22T17:21:39.629974"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.157645"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2023T1-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, janvier à mars 2023"
+        },
+        {
+          "@language": "en",
+          "@value": "2023Q1-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, January to March 2023"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5",
+      "@type": "dcat:Dataset",
+      "dcat:distribution": [
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8a6d1350-859c-4239-99a6-f67547b33473"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/93fed83b-266b-45ba-aa65-4f356349f9e7"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/789760d6-2227-41ab-a84c-d4465c564d0f"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4220c95e-146f-48d2-830c-fae0c6799999"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5491e558-dc3b-48ca-a9e4-08c76a1dbd4c"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5a24f2ae-133e-4642-9181-eb683c7de6a7"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8dde6c36-d98d-4ada-98b5-7dd028ef4acf"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/689dc7db-c1dd-438c-9fb7-8136eca335ae"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4b3ad4c2-cbf7-4285-a1a9-7aedc37cab0a"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/fadf5118-d5ec-4cfe-b36b-68394ae2a39a"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1e854188-18c4-4cbe-b4e0-88561955fe05"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/071ad9cc-8fb2-4415-b014-3741e324682e"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/94a0dbee-e9d9-4492-ab52-07f0f0fb255b"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/99615d96-207b-4fb6-83b5-564dfdc54003"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/44285e45-f241-4dc3-9b87-4f1c25c36cf9"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1c797408-70b8-4ac2-9b29-1de0bb9f2c22"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/a4c40bf2-0370-4e0d-ac16-aadc00cdbadc"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/59d3b563-600c-486f-bec8-c8095ed77d8d"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/438f75b8-58a3-4975-a0d4-ce26ed2fb4c6"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5223731d-815d-4112-a918-72354c84831c"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8e3ff11e-5e1d-43a4-bb78-927492ac428b"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1bcfe8d1-0ec8-4494-b895-d2458520064b"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/73738a26-dbe3-4cc7-b60a-09decc3eb819"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/813a726a-fb58-48ad-81ff-28f1b663ece2"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/01e88f4d-6d4a-412d-804b-776119d5b2ca"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/251619ca-6541-499f-87c0-6860bf8b04fe"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/e7f2307e-9b25-4323-adb0-e95ea02f4d25"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/82ab1f22-17b8-4a97-aa9c-9231335a15bf"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6b26adc2-19f3-4ff6-b5aa-e721c8346433"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3528961a-59e6-489f-a91d-7bdc0b0f8f84"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1da135e7-a84b-42f2-b579-b195c3a81b4b"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4a8d6984-3485-4ef0-a758-7370cd5e0894"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/39f46bb3-f9cd-4111-a2d6-dd64c8381902"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/0b7f62a5-c8d8-41ec-a5ca-bd4123b8c3a6"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/51f09276-025d-4572-9a96-06faaa07710a"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/69d1bf1d-a525-4f81-baa2-c2b700fc460a"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/bc6ad004-018d-484f-bf41-c207363db511"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/a7069424-50fe-464c-bb1e-130d8a185c2e"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f685f4a9-e5c8-48d9-ac60-f556acb59722"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/d8b20d46-7f6f-422c-831c-0db16f75ebe4"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3aa29d6f-1b2c-46e7-8c85-5b8123d78c6b"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6a36e73c-b2ac-438e-b603-56ceea01c56b"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b81003de-a54e-4eae-91ee-2d466dfa9202"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b5432d4f-403f-44a2-b952-1eb2e65faa76"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/545cf9ce-18fa-4f09-8490-0b5730164a02"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/39dd1c6c-6a34-471b-a4a3-3847d799a320"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f7d8ae52-1bbf-41b2-8385-6f08b7d0c8fd"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f1b6fd7d-8417-4130-bb5f-20e1220c9dec"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b6fdd154-0077-418b-9bfe-267a2cf6edb5"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/ca5f3dd0-654c-4793-836e-3e9495a5600c"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5a07f5a6-1685-48f8-a229-ddf5bfcf48b6"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/69c13dca-23ac-4efc-bc84-6c165b9e396e"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3d2b9b57-0b6a-47d3-b38c-ef0c25e1b4e6"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/207aa4c9-78c8-4c5c-bd92-5b7790dcab56"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/b26fc4c6-d6e2-490d-a7c0-6bdf07e34e85"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f763112a-56de-4566-a1b5-1201444870a1"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/34c79af7-7f98-45e7-9eb3-511b78225625"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/2430b2e2-6e21-4045-8fc4-030c63db4287"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6022699b-5213-4933-a58d-6bdc7cce78c3"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/7be521ea-2055-4184-9d45-56cbf12fb255"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/dc04d25f-7715-4716-97d8-0971d1ea96a8"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/9ed37163-3ecc-4f85-90b6-38129ce01276"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3c8499c2-4e27-493c-9c62-1883eb1d091d"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f7fbb221-758d-4a5e-ab61-967d9fb19ddb"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5bb40b78-46ac-430f-b1b9-b8ed25632bc9"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/9ba7fa2f-3b64-4c82-8c85-c1f54b1ec7f1"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1b27d0b1-f55c-491b-b643-3e36a9f6fae1"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3fa31e47-cb51-4556-9096-358ea06acc38"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4f9a23d3-c6a6-4472-94ad-ec9646351539"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/9e7ea9c6-5c13-4ebd-a54a-32c30d167d5a"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/214fe121-aaba-464f-96dc-a225e5b4d114"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/92107401-66e8-4556-88be-e0a2eda2dc18"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f731e9e9-273d-486a-8551-10fbe65be5f5"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8c5f576d-66d8-4d3d-9c38-c55af142b385"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/52977cb7-c0c5-4312-afe2-9d383e6d2903"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/bf402b35-9270-4608-b244-3741a21be2fd"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/c3a55d04-bd4d-4b1f-8c6a-6f2c9fd4c62d"
+        },
+        {
+          "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/dce97de0-120f-4f85-bfc7-e0bd95a85433"
+        }
+      ],
+      "dcat:keyword": [
+        {
+          "@language": "en",
+          "@value": "TFW Program employers"
+        },
+        {
+          "@language": "fr",
+          "@value": "les employeurs du programme TET"
+        }
+      ],
+      "dct:accrualPeriodicity": "P3M",
+      "dct:description": [
+        {
+          "@language": "fr",
+          "@value": "Cette liste exclut tous les noms personnels, tels que les employeurs des aides-familiaux ou les noms d'entreprises qui incluent des noms personnels. Pour cette raison, cette liste est incomplète et ne contient pas tous les employeurs qui ont soumis ou obtenu une EIMT.\r\n\r\nLes données contenues dans ce rapport couvrent seulement les postes de Travailleurs étrangers temporaires (TET) qui ont fait l’objet d’une étude d’impact sur le marché du travail (EIMT) négative, ce qui signifie que l’employeur n’a pas rencontré toutes les exigences du PTET.\r\n\r\nDans l’ensemble, s’il ressort d’une étude que l’embauche d’un TET n’aura pas un effet positif ou neutre sur le marché du travail canadien, une EIMT négative sera émise. Parmi les raisons précises qui donnent lieu à une étude négative, mentionnons les suivantes :\r\n\r\n•\tl’employeur n’a pu démontrer qu’il a un besoin raisonnable en matière d’emploi;\r\n\r\n•\tl’employeur n’a pu démontrer qu’il a fait des efforts suffisants pour combler le poste vacant en recrutant, embauchant ou formant des Canadiens ou des résidents permanents;\r\n\r\n•\tl’employeur n’a pas offert un salaire conforme à celui établi pour la profession visée; \r\n\r\n•\tl’employeur ne respecte pas les accords ou les règlements fédéraux, provinciaux ou territoriaux\r\n\r\n•\til y a des preuves que l’entrée au pays d’un ressortissant étranger aurait des répercussions sur un conflit de travail en suspens qui concerne des Canadiens dans la profession visée;\r\n\r\n•\tl’employeur n’a pu démontrer sa capacité à respecter les modalités de l’offre d’emploi;\r\n\r\n•\tl’employeur n’a pu démontrer qu’il exploite activement une entreprise dans le secteur visé par l’offre d’emploi;\r\n\r\n•\tl’employeur ne s’est pas conformé aux exigences ou aux conditions établies dans des EIMT confirmées ou des annexes précédentes.\r\n\r\nNote: \r\nDu premier trimestre de 2018 à la publication des données du troisième trimestre 2023 et aller de l’avant, les EIMT à l'appui de la résidence permanente (RP) ont été exclus des listes d'employeurs publiées. À partir de la publication des listes d'employeurs du 4e trimestre 2023 (publiées en avril 2024), toutes les EIMT à l'appui de la «  résidence permanente (RP) uniquement  » seront incluses dans les listes d'employeurs. Cependant, les listes d'employeurs précédentes ne seront pas mises à jour. \r\n\r\nSi un employeur souhaite communiquer avec Emploi et Développement social Canada concernant ces informations, prière de communiquer au NA-TFWP-PTET@hrsdc-rhdcc.gc.ca."
+        },
+        {
+          "@language": "en",
+          "@value": "This list excludes all personal names, such as employers of caregivers or business names that use or include personal names. For this reason, the list is not complete and does not reflect all employers who requested or received an LMIA.\r\n\r\nThe data provided in this report tracks temporary foreign worker (TFW) positions on negative Labour Market Impact Assessments, which means that the employer did not meet all of the TFWP requirements. \r\n\r\nOverall, if an assessment indicates that hiring a TFW will not have a positive or neutral impact on the Canadian labour market, a negative LMIA will be issued. Specific reasons for a negative assessment could include, but are not limited to:\r\n\r\n•the employer was not able to demonstrate a reasonable employment need; \r\n\r\n•the employer has not demonstrated sufficient efforts to recruit, hire or train Canadians or permanent residents for the position;\r\n\r\n•the employer did not offer a wage consistent with the occupation being requested; \r\n\r\n•the employer is not adhering to federal/provincial/territorial regulations and/or agreements;\r\n\r\n•there is evidence that the entry of a foreign national would impact a pending labour dispute involving Canadians in the requested occupation;\r\n\r\n•the employer was not able to demonstrate the ability to fulfil the terms of the job offer;\r\n\r\n•the employer was not able to demonstrate that they are actively engaged in the business related to the job offer; and/or\r\n\r\n•the employer did not comply with the requirements or conditions set out in previous positive LMIAs and annexes.\r\n\r\nNote:\r\nFrom Q1 2018  to Q3 2023 data, LMIAs in support of Permanent Residence (PR) were excluded from published employer lists. As of the publication of Q4 2023 employer lists (published in April 2024) and going forward, all LMIAs in support of 'Permanent Residence (PR) Only' will be included in the employer lists. However, previous employer lists will not be updated. \r\n\r\nShould an employer wish to contact Employment and Social Development Canada concerning this information, please contact NA-TFWP-PTET@hrsdc-rhdcc.gc.ca."
+        }
+      ],
+      "dct:identifier": "f82f66f2-a22b-4511-bccf-e1d74db39ae5",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2016-09-26T18:16:29.204843"
+      },
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2026-07-22T13:32:01.966122"
+      },
+      "dct:publisher": {
+        "@id": "https://open.canada.ca/organization/055ADCD8-8FDA-40DA-A5B7-689FF7DB57A6"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "Programme des travailleurs étrangers temporaires (PTET): Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative "
+        },
+        {
+          "@language": "en",
+          "@value": "Temporary Foreign Worker Program (TFWP): Negative Labour Market Impact Assessment (LMIA) Employers List"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1b27d0b1-f55c-491b-b643-3e36a9f6fae1",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/1b27d0b1-f55c-491b-b643-3e36a9f6fae1/download/tfwp_2023q3_neg_fr.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "44232.0"
+      },
+      "dct:format": "XLS",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2023-12-12T14:11:11.981591"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:13:22.139805"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2023T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, juillet à septembre 2023"
+        },
+        {
+          "@language": "en",
+          "@value": "2023Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, July to September 2023"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4220c95e-146f-48d2-830c-fae0c6799999",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4220c95e-146f-48d2-830c-fae0c6799999/download/tfwp_2024q4_neg_en.xlsx"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-03-18T19:40:59.918833"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2025-03-18T19:40:59.899665"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2024Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2021 and Business Location, October to December 2024"
+        },
+        {
+          "@language": "fr",
+          "@value": "2024T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2021 et lieu de affaires, octobre à décembre 2024"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3c8499c2-4e27-493c-9c62-1883eb1d091d",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/3c8499c2-4e27-493c-9c62-1883eb1d091d/download/tfwp_2023q3_neg_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "44030.0"
+      },
+      "dct:format": "XLS",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2023-12-12T14:11:11.981583"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:09:02.079132"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2023T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, juillet à septembre 2023"
+        },
+        {
+          "@language": "en",
+          "@value": "2023Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, July to September 2023"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/d8b20d46-7f6f-422c-831c-0db16f75ebe4",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/d8b20d46-7f6f-422c-831c-0db16f75ebe4/download/tfwp_2020q3_negative_fr.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "66921.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2020-12-04T17:31:29.725644"
+      },
+      "dct:language": "fr",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T03:05:28.716647"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2020Q3-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, July to September 2020"
+        },
+        {
+          "@language": "fr",
+          "@value": "2020T3-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, juillet à septembre 2020\t"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/organization/055ADCD8-8FDA-40DA-A5B7-689FF7DB57A6",
+      "@type": "foaf:Organization",
+      "foaf:name": [
+        {
+          "@language": "fr",
+          "@value": "Emploi et Développement social Canada"
+        },
+        {
+          "@language": "en",
+          "@value": "Employment and Social Development Canada"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/34c79af7-7f98-45e7-9eb3-511b78225625",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/34c79af7-7f98-45e7-9eb3-511b78225625/download/2016_negative_employer_en.csv"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "354385.0"
+      },
+      "dct:format": "CSV",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2017-08-04T10:10:13.259390"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-11-21T02:17:11.949663"
+      },
+      "dct:title": [
+        {
+          "@language": "en",
+          "@value": "2016-Employers who were issued a negative Labour Market Impact Assessment (LMIA) in 2016, by National Occupational Classification (NOC) 2011 and business location "
+        },
+        {
+          "@language": "fr",
+          "@value": "2016-Employeurs ayant obtenu une Étude d'impact sur le marché du travail (EIMT) négative en 2016, par classification nationale des professions (CNP) 2011 et lieu d’affaires"
+        }
+      ]
+    },
+    {
+      "@id": "https://open.canada.ca/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8dde6c36-d98d-4ada-98b5-7dd028ef4acf",
+      "@type": "dcat:Distribution",
+      "dcat:accessURL": {
+        "@id": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/8dde6c36-d98d-4ada-98b5-7dd028ef4acf/download/tfwp_2022q4_neg_en.xlsx"
+      },
+      "dcat:byteSize": {
+        "@type": "xsd:decimal",
+        "@value": "39682.0"
+      },
+      "dct:format": "XLSX",
+      "dct:issued": {
+        "@type": "xsd:dateTime",
+        "@value": "2023-03-21T13:50:30.193365"
+      },
+      "dct:language": "en",
+      "dct:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2024-12-20T19:00:36.157466"
+      },
+      "dct:title": [
+        {
+          "@language": "fr",
+          "@value": "2022T4-Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, octobre à decembre 2022"
+        },
+        {
+          "@language": "en",
+          "@value": "2022Q4-Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, October to December 2022"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1.0",
+  "finding": "The English 2021 Q2 Open Government resource serves the 2020 Q2 CSV, while matching English and French 2021 Q2 XLSX workbooks remain available on ESDC infrastructure.",
+  "portal_duplicate": {
+    "byte_for_byte_identical": true,
+    "sha256_matches": true,
+    "portal_2020_q2": {
+      "encoding": "cp1252",
+      "title": "Employers who were Issued a Negative Labour Market Impact Assessment (LMIA) by Stream, National Occupational Classification (NOC) 2011 and Business Location in 2020(April-June)",
+      "headers": [
+        "Province/Territory",
+        "Stream",
+        "Employer",
+        "Address",
+        "Occupation",
+        "Requested Positions"
+      ],
+      "data_rows": 174,
+      "requested_positions": 433,
+      "distinct_employer_strings": 170
+    },
+    "portal_2021_q2": {
+      "encoding": "cp1252",
+      "title": "Employers who were Issued a Negative Labour Market Impact Assessment (LMIA) by Stream, National Occupational Classification (NOC) 2011 and Business Location in 2020(April-June)",
+      "headers": [
+        "Province/Territory",
+        "Stream",
+        "Employer",
+        "Address",
+        "Occupation",
+        "Requested Positions"
+      ],
+      "data_rows": 174,
+      "requested_positions": 433,
+      "distinct_employer_strings": 170
+    }
+  },
+  "recovered_workbooks": {
+    "english": {
+      "sheet": "Negative_EN",
+      "title": "Employers Who Were Issued a Negative Labour Market Impact Assessment (LMIA) by Program Stream, National Occupational Classification (NOC) 2011 and Business Location, April to June 2021",
+      "headers": [
+        "Province/Territory",
+        "Program Stream",
+        "Employer",
+        "Address",
+        "Occupation",
+        "Requested Positions"
+      ],
+      "data_rows": 498,
+      "first_data_row": 3,
+      "last_data_row": 500,
+      "notes_row": 501,
+      "requested_positions": 850,
+      "distinct_employer_strings": 490
+    },
+    "french": {
+      "sheet": "Negative_FR",
+      "title": "Employeurs ayant obtenu une étude d’impact sur le marché du travail  (EIMT) negative, par volet du programme, classification nationale des professions (CNP) 2011 et lieu de affaires, avril à juin 2021",
+      "headers": [
+        "Province/Territoire",
+        "Volet du programme",
+        "Employeur",
+        "Adresse",
+        "Profession",
+        "Postes demandes"
+      ],
+      "data_rows": 498,
+      "first_data_row": 3,
+      "last_data_row": 500,
+      "notes_row": 501,
+      "requested_positions": 850,
+      "distinct_employer_strings": 490
+    },
+    "language_independent_fields_compared": [
+      "employer",
+      "address",
+      "NOC code",
+      "requested positions"
+    ],
+    "row_level_mismatch_count": 0,
+    "row_level_mismatch_source_rows": []
+  },
+  "resource_page_validation": {
+    "portal_2020_q2_en-resource-page": {
+      "status": "Invalid data",
+      "timestamp": "December 13, 2023, 04:39 (UTC)"
+    },
+    "portal_2021_q2_en-resource-page": {
+      "status": "Invalid data",
+      "timestamp": "December 13, 2023, 04:40 (UTC)"
+    },
+    "portal_2021_q2_fr-resource-page": {
+      "status": null,
+      "timestamp": null
+    },
+    "portal_2020_q1_en-resource-page": {
+      "status": "Invalid data",
+      "timestamp": "December 13, 2023, 04:39 (UTC)"
+    },
+    "portal_2020_q3_en-resource-page": {
+      "status": "Invalid data",
+      "timestamp": "December 13, 2023, 04:39 (UTC)"
+    },
+    "portal_2021_q3_en-resource-page": {
+      "status": null,
+      "timestamp": null
+    }
+  },
+  "checks": {
+    "portal_files_identical": true,
+    "portal_files_describe_2020_q2": true,
+    "recovered_english_describes_2021_q2": true,
+    "recovered_french_describes_2021_q2": true,
+    "recovered_language_row_counts_match": true,
+    "recovered_language_position_totals_match": true,
+    "recovered_language_independent_fields_match": true
+  }
+}

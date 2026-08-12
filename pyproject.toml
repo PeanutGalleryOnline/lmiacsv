@@ -1,11 +1,22 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "lmia-record-processor"
-version = "0.0.1"
-description = "Deterministic data pipeline for The LMIA Record"
+name = "lmiacsv"
+version = "0.1.0"
+description = "Reproducible normalizer for Canada's public LMIA employer lists"
+readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
   "openpyxl==3.1.5",
 ]
+
+[project.scripts]
+lmiacsv = "lmiacsv.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["lmiacsv*"]
 
 [tool.ruff]
 line-length = 100

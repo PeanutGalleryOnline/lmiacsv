@@ -1,0 +1,287 @@
+{
+  "schema_version": "0.1.0",
+  "normalizer_version": "0.1.0",
+  "format": "CSV UTF-8 with header",
+  "primary_key": [
+    "record_id"
+  ],
+  "fields": [
+    {
+      "name": "record_id",
+      "type": "string",
+      "nullable": false,
+      "description": "Stable content-and-source-row identifier."
+    },
+    {
+      "name": "period_key",
+      "type": "string",
+      "nullable": false,
+      "description": "Catalogue period key; annual and multi-quarter periods stay unsplit."
+    },
+    {
+      "name": "period_year",
+      "type": "integer",
+      "nullable": false,
+      "description": "Calendar year named by the source release."
+    },
+    {
+      "name": "period_quarter",
+      "type": "string",
+      "nullable": true,
+      "description": "Q1-Q4, Q1-Q2, or blank for an annual/partial-year source."
+    },
+    {
+      "name": "period_precision",
+      "type": "string",
+      "nullable": false,
+      "description": "quarter, multi_quarter, or year_or_partial_year."
+    },
+    {
+      "name": "decision_status",
+      "type": "string",
+      "nullable": false,
+      "description": "Catalogue decision list: positive or negative."
+    },
+    {
+      "name": "language",
+      "type": "string",
+      "nullable": false,
+      "description": "Language of the selected source; this build selects English."
+    },
+    {
+      "name": "comparability_regime",
+      "type": "string",
+      "nullable": false,
+      "description": "Scope regime for permanent-residence-only LMIAs."
+    },
+    {
+      "name": "province_raw",
+      "type": "string",
+      "nullable": true,
+      "description": "Literal province cell; blank where the source uses grouping."
+    },
+    {
+      "name": "province",
+      "type": "string",
+      "nullable": true,
+      "description": "Cleaned and forward-filled province or territory name."
+    },
+    {
+      "name": "province_code",
+      "type": "string",
+      "nullable": true,
+      "description": "Canadian postal abbreviation, or INT for outside Canada."
+    },
+    {
+      "name": "program_stream_raw",
+      "type": "string",
+      "nullable": true,
+      "description": "Literal stream cell; blank where the source uses grouping."
+    },
+    {
+      "name": "program_stream",
+      "type": "string",
+      "nullable": true,
+      "description": "Cleaned and forward-filled program stream when supplied."
+    },
+    {
+      "name": "employer_raw",
+      "type": "string",
+      "nullable": false,
+      "description": "Literal employer cell."
+    },
+    {
+      "name": "employer",
+      "type": "string",
+      "nullable": false,
+      "description": "Unicode- and whitespace-cleaned employer label."
+    },
+    {
+      "name": "employer_key",
+      "type": "string",
+      "nullable": false,
+      "description": "Case- and punctuation-folded employer search key; not entity resolution."
+    },
+    {
+      "name": "address_raw",
+      "type": "string",
+      "nullable": true,
+      "description": "Literal address cell."
+    },
+    {
+      "name": "address",
+      "type": "string",
+      "nullable": true,
+      "description": "Unicode- and whitespace-cleaned address, forward-filled when grouped."
+    },
+    {
+      "name": "postal_code",
+      "type": "string",
+      "nullable": true,
+      "description": "Canadian postal code parsed from the address when present."
+    },
+    {
+      "name": "occupation_raw",
+      "type": "string",
+      "nullable": true,
+      "description": "Literal occupation cell."
+    },
+    {
+      "name": "noc_version",
+      "type": "string",
+      "nullable": true,
+      "description": "NOC version inferred from code width and source year."
+    },
+    {
+      "name": "noc_code",
+      "type": "string",
+      "nullable": true,
+      "description": "Four- or five-digit NOC code parsed from the occupation label."
+    },
+    {
+      "name": "occupation_title",
+      "type": "string",
+      "nullable": true,
+      "description": "Occupation title with the parsed NOC prefix removed."
+    },
+    {
+      "name": "occupation_label",
+      "type": "string",
+      "nullable": true,
+      "description": "Canonical NOC code and occupation title display label."
+    },
+    {
+      "name": "incorporate_status_raw",
+      "type": "string",
+      "nullable": true,
+      "description": "Literal incorporate-status cell when supplied."
+    },
+    {
+      "name": "incorporate_status",
+      "type": "string",
+      "nullable": true,
+      "description": "Cleaned incorporate status when supplied."
+    },
+    {
+      "name": "lmia_measure",
+      "type": "string",
+      "nullable": true,
+      "description": "Semantic label for lmia_count; blank when the source has no LMIA count."
+    },
+    {
+      "name": "lmia_count",
+      "type": "integer",
+      "nullable": true,
+      "description": "LMIA count when the source supplies it; blank before 2021 Q4."
+    },
+    {
+      "name": "position_measure",
+      "type": "string",
+      "nullable": false,
+      "description": "Semantic label for position_count."
+    },
+    {
+      "name": "position_count",
+      "type": "integer",
+      "nullable": false,
+      "description": "Published position count, including preserved zeroes."
+    },
+    {
+      "name": "source_dataset_id",
+      "type": "string",
+      "nullable": false,
+      "description": "Open Government dataset UUID."
+    },
+    {
+      "name": "source_resource_id",
+      "type": "string",
+      "nullable": false,
+      "description": "Open Government distribution/resource UUID."
+    },
+    {
+      "name": "source_resource_url",
+      "type": "string",
+      "nullable": false,
+      "description": "Human-facing Open Government resource page."
+    },
+    {
+      "name": "source_download_url",
+      "type": "string",
+      "nullable": false,
+      "description": "Selected source download URL; recovered sources use the ESDC URL."
+    },
+    {
+      "name": "source_final_url",
+      "type": "string",
+      "nullable": false,
+      "description": "Final URL after the archived download redirect, without query strings."
+    },
+    {
+      "name": "source_file",
+      "type": "string",
+      "nullable": false,
+      "description": "Government source filename retained as evidence, not identity."
+    },
+    {
+      "name": "source_format",
+      "type": "string",
+      "nullable": false,
+      "description": "Format detected from the selected file content."
+    },
+    {
+      "name": "source_catalogue_format",
+      "type": "string",
+      "nullable": false,
+      "description": "Format declared by the Open Government catalogue."
+    },
+    {
+      "name": "source_sheet",
+      "type": "string",
+      "nullable": false,
+      "description": "Selected workbook sheet, or CSV for a text source."
+    },
+    {
+      "name": "source_row",
+      "type": "integer",
+      "nullable": false,
+      "description": "One-based row number in the selected source sheet or CSV."
+    },
+    {
+      "name": "source_sha256",
+      "type": "string",
+      "nullable": false,
+      "description": "SHA-256 checksum of the exact selected source file."
+    },
+    {
+      "name": "source_schema_signature",
+      "type": "string",
+      "nullable": false,
+      "description": "Stable signature of the normalized source headers."
+    },
+    {
+      "name": "source_disposition",
+      "type": "string",
+      "nullable": false,
+      "description": "normalized or recovered_official_alternate."
+    },
+    {
+      "name": "quality_flags",
+      "type": "string",
+      "nullable": true,
+      "description": "Pipe-delimited row/source caveats carried into the canonical table."
+    },
+    {
+      "name": "normalizer_version",
+      "type": "string",
+      "nullable": false,
+      "description": "Version of this canonical normalization contract."
+    }
+  ],
+  "measure_semantics": {
+    "approved_lmias": "Counts from positive-decision lists where published.",
+    "requested_lmias_on_negative_decisions": "Requested LMIA counts attached to negative-decision list rows where published.",
+    "approved_positions": "Approved positions on positive-decision list rows.",
+    "requested_positions_on_negative_decisions": "Requested positions attached to negative-decision list rows."
+  },
+  "important_limit": "Employer-list rows are not application-level observations. The table must not be used to calculate an LMIA application approval or denial rate."
+}

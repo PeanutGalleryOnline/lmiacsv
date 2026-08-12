@@ -1,0 +1,195 @@
+{
+  "schema_version": "0.1.0",
+  "retrieved_at": "2026-08-12T06:10:43+00:00",
+  "dataset_id": "f82f66f2-a22b-4511-bccf-e1d74db39ae5",
+  "assets": [
+    {
+      "id": "portal-2020-q2-en-csv",
+      "role": "control: official 2020 Q2 English portal download",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5bb40b78-46ac-430f-b1b9-b8ed25632bc9/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q22020q2csv202.csv",
+      "final_url": "https://opencanada.blob.core.windows.net/opengovprod/resources/5bb40b78-46ac-430f-b1b9-b8ed25632bc9/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q22020q2csv202.csv",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "text/csv",
+        "content-length": "21327",
+        "last-modified": "Mon, 21 Aug 2023 21:19:50 GMT",
+        "etag": "\"0x8DBA28C5AD1529D\"",
+        "date": "Wed, 12 Aug 2026 06:10:43 GMT",
+        "server": "Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0"
+      },
+      "archive_path": "sources/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q22020q2csv202-2020-resource.csv",
+      "bytes": 21327,
+      "sha256": "ff1af733f97a0e9ada5df89facae23b3258db5fc967221db87cf9f06c3c94121"
+    },
+    {
+      "id": "portal-2021-q2-en-csv",
+      "role": "anomaly: official 2021 Q2 English portal download",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4f9a23d3-c6a6-4472-94ad-ec9646351539/download/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q22020q2csv202.csv",
+      "final_url": "https://opencanada.blob.core.windows.net/opengovprod/resources/4f9a23d3-c6a6-4472-94ad-ec9646351539/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q22020q2csv202.csv",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "text/csv",
+        "content-length": "21327",
+        "last-modified": "Mon, 21 Aug 2023 21:19:50 GMT",
+        "etag": "\"0x8DBA28C5A79C966\"",
+        "date": "Wed, 12 Aug 2026 06:10:44 GMT",
+        "server": "Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0"
+      },
+      "archive_path": "sources/useb-dgcetfw-tetdip-piddiviaionline-publicationemployer-list2020-employer-list2020q22020q2csv202-2021-resource.csv",
+      "bytes": 21327,
+      "sha256": "ff1af733f97a0e9ada5df89facae23b3258db5fc967221db87cf9f06c3c94121"
+    },
+    {
+      "id": "esdc-2021-q2-negative-en-xlsx",
+      "role": "recovered analytical source: official ESDC English workbook",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://www.esdc.gc.ca/ouvert-open/bca-seb/imt-lmi/TFWP_2021Q2_Negative_EN.xlsx",
+      "final_url": "https://www.esdc.gc.ca/ouvert-open/bca-seb/imt-lmi/TFWP_2021Q2_Negative_EN.xlsx",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "content-length": "38847",
+        "last-modified": "Tue, 31 Aug 2021 20:23:46 GMT",
+        "etag": "\"0757b19a69ed71:0\"",
+        "date": "Wed, 12 Aug 2026 06:10:43 GMT",
+        "server": "Microsoft-IIS/10.0"
+      },
+      "archive_path": "sources/TFWP_2021Q2_Negative_EN.xlsx",
+      "bytes": 38847,
+      "sha256": "ee14d30f2b93b5e607974f8301ad7c09126ed73bd6a678b3edb9fcc5bc3c9f67"
+    },
+    {
+      "id": "esdc-2021-q2-negative-fr-xlsx",
+      "role": "catalogued cross-check: official ESDC French workbook",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://www.esdc.gc.ca/ouvert-open/bca-seb/imt-lmi/TFWP_2021Q2_Negative_FR.xlsx",
+      "final_url": "https://www.esdc.gc.ca/ouvert-open/bca-seb/imt-lmi/TFWP_2021Q2_Negative_FR.xlsx",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "content-length": "40002",
+        "last-modified": "Tue, 31 Aug 2021 20:23:46 GMT",
+        "etag": "\"0757b19a69ed71:0\"",
+        "date": "Wed, 12 Aug 2026 06:10:43 GMT",
+        "server": "Microsoft-IIS/10.0"
+      },
+      "archive_path": "sources/TFWP_2021Q2_Negative_FR.xlsx",
+      "bytes": 40002,
+      "sha256": "cbeaaae10ad628808e5ed615ae5724fb62f7fb8f3e23c3082aa30d39fc7558cd"
+    },
+    {
+      "id": "portal_2020_q2_en-resource-page",
+      "role": "resource-page snapshot: portal 2020 q2 en",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5bb40b78-46ac-430f-b1b9-b8ed25632bc9",
+      "final_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/5bb40b78-46ac-430f-b1b9-b8ed25632bc9",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "440127",
+        "date": "Wed, 12 Aug 2026 06:10:46 GMT"
+      },
+      "archive_path": "pages/portal-2020-q2-en.html",
+      "bytes": 440127,
+      "sha256": "fc7ea2c02bf21fdfa327db87da0c25056e28a2b6b3388cb96aa9f3fa781e9cc0"
+    },
+    {
+      "id": "portal_2021_q2_en-resource-page",
+      "role": "resource-page snapshot: portal 2021 q2 en",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4f9a23d3-c6a6-4472-94ad-ec9646351539",
+      "final_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/4f9a23d3-c6a6-4472-94ad-ec9646351539",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "440217",
+        "date": "Wed, 12 Aug 2026 06:10:47 GMT"
+      },
+      "archive_path": "pages/portal-2021-q2-en.html",
+      "bytes": 440217,
+      "sha256": "d806b386c6b772c87791b6f5c71fa7e4e985816d27af00fee9ac5241cce883f0"
+    },
+    {
+      "id": "portal_2021_q2_fr-resource-page",
+      "role": "resource-page snapshot: portal 2021 q2 fr",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f7fbb221-758d-4a5e-ab61-967d9fb19ddb",
+      "final_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f7fbb221-758d-4a5e-ab61-967d9fb19ddb",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "439623",
+        "date": "Wed, 12 Aug 2026 06:10:48 GMT"
+      },
+      "archive_path": "pages/portal-2021-q2-fr.html",
+      "bytes": 439623,
+      "sha256": "815dd5732b89dcb27bd7c924f4c112a5b74eec172991e95cbd2097c4ece06c26"
+    },
+    {
+      "id": "portal_2020_q1_en-resource-page",
+      "role": "resource-page snapshot: portal 2020 q1 en",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/93fed83b-266b-45ba-aa65-4f356349f9e7",
+      "final_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/93fed83b-266b-45ba-aa65-4f356349f9e7",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "440070",
+        "date": "Wed, 12 Aug 2026 06:10:49 GMT"
+      },
+      "archive_path": "pages/portal-2020-q1-en.html",
+      "bytes": 440070,
+      "sha256": "72e53ff07bf414066ebc5b0e64157f4fe32bf336332b07f22d728c059d7ed645"
+    },
+    {
+      "id": "portal_2020_q3_en-resource-page",
+      "role": "resource-page snapshot: portal 2020 q3 en",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/39f46bb3-f9cd-4111-a2d6-dd64c8381902",
+      "final_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/39f46bb3-f9cd-4111-a2d6-dd64c8381902",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "440078",
+        "date": "Wed, 12 Aug 2026 06:10:50 GMT"
+      },
+      "archive_path": "pages/portal-2020-q3-en.html",
+      "bytes": 440078,
+      "sha256": "8a663586c1ce4c3343619a1beae38fc254f67e99fa861dab876eb2137d0fa07c"
+    },
+    {
+      "id": "portal_2021_q3_en-resource-page",
+      "role": "resource-page snapshot: portal 2021 q3 en",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f731e9e9-273d-486a-8551-10fbe65be5f5",
+      "final_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/f731e9e9-273d-486a-8551-10fbe65be5f5",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "439646",
+        "date": "Wed, 12 Aug 2026 06:10:51 GMT"
+      },
+      "archive_path": "pages/portal-2021-q3-en.html",
+      "bytes": 439646,
+      "sha256": "3df7f1625c4dae35aa8eb16b954a5510eeabae6e7091a9bf494eb1cb716318ba"
+    },
+    {
+      "id": "negative-employer-list-catalogue-jsonld",
+      "role": "machine-readable Open Government catalogue snapshot",
+      "retrieved_at": "2026-08-12T06:10:43+00:00",
+      "requested_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5.jsonld",
+      "final_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5.jsonld",
+      "http_status": 200,
+      "response_headers": {
+        "content-type": "application/ld+json",
+        "content-length": "123069",
+        "date": "Wed, 12 Aug 2026 06:10:52 GMT"
+      },
+      "archive_path": "catalogue/f82f66f2-a22b-4511-bccf-e1d74db39ae5.jsonld",
+      "bytes": 123069,
+      "sha256": "31c055cbe2d104eabaf3792382f8eb73daf822e1879da532af30b08f3f2cd9ad"
+    }
+  ]
+}

@@ -5,5 +5,7 @@ dist/
 .DS_Store
 data/raw/
 data/normalized/
-processor/__pycache__/
+lmiacsv/__pycache__/
+tests/__pycache__/
+.ruff_cache/
 *.pyc
