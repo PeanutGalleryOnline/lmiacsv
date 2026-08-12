@@ -1,0 +1,23 @@
+{
+  "name": "lmia-record",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "inventory": "python3 -m processor.inventory /Users/koop/Vibe/lmiacrunch/data/opengov",
+    "pilot": "python3 -m processor.pilot_2025q1 data/raw/2025q1",
+    "test:data": "python3 -m unittest discover -s processor/tests"
+  },
+  "dependencies": {
+    "astro": "^7.2.1",
+    "peanutbutter": "file:../peanutbutter"
+  },
+  "overrides": {
+    "peanutbutter": {
+      "astro": "$astro"
+    }
+  }
+}

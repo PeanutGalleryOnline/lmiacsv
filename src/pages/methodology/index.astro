@@ -1,0 +1,102 @@
+---
+import overview from '../../../data/published/overview.json';
+import '../../styles/theme.css';
+import BaseLayout from 'peanutbutter/src/components/BaseLayout.astro';
+import Masthead from 'peanutbutter/src/components/Masthead.astro';
+import Footer from 'peanutbutter/src/components/Footer.astro';
+import PGLink from 'peanutbutter/src/components/PGLink.astro';
+---
+
+<BaseLayout title="Working Methodology — The LMIA Record" description="The data contract and publication standards behind The LMIA Record.">
+	<Masthead
+		slot="header"
+		icons="🥜📋"
+		location="Canada"
+		locationIcon="emojione-monotone:maple-leaf"
+		label="Public Data"
+		est="12,026 HE"
+		title="Working Methodology"
+		sub="How the record will become publishable"
+		homeHref="/"
+	/>
+
+	<main class="record-layout methodology">
+		<PGLink type="page" href="/" label="Back to The LMIA Record">The LMIA Record</PGLink>
+
+		<section class="intro">
+			<p class="eyebrow">Contract version {overview.data_contract_version}</p>
+			<h2>Greenfield code, brownfield evidence</h2>
+			<p>The original project discovered and recovered the files. This rewrite preserves that evidence while rebuilding the executable pipeline around immutability, validation and row-level provenance. The 2025 Q1 pilot is the first release through that complete path.</p>
+		</section>
+
+		<section>
+			<p class="eyebrow">First passing release</p>
+			<h2>2025 Q1, end to end</h2>
+			<p>Two official English workbooks are pinned by source URL and SHA-256 checksum. Their sheet names, title rows, headers, data boundaries and row counts are validated before 20,586 source rows become canonical records.</p>
+			<PGLink type="page" href="/quarter/2025-q1/" label="Explore the verified 2025 Q1 pilot">Explore the pilot</PGLink>
+		</section>
+
+		<section>
+			<h2>Three data layers</h2>
+			<ol class="layers">
+				<li><strong>Raw</strong><span>Original government downloads, immutable and identified by checksum.</span></li>
+				<li><strong>Normalized</strong><span>Canonical records that retain raw values beside standardized employer, geography, occupation and position fields.</span></li>
+				<li><strong>Published</strong><span>Small aggregates, search indexes and profiles generated from the canonical layer for the website.</span></li>
+			</ol>
+		</section>
+
+		<section>
+			<h2>Publication gate</h2>
+			<p>A release is not eligible for public statistics until it has an authoritative source URL, archived checksum, explicit decision status, period, language, selected workbook sheet, resolved duplicate relationship and validated row count.</p>
+			<ul class="blockers">
+				{overview.blockers.map(blocker => <li>{blocker}</li>)}
+			</ul>
+		</section>
+
+		<section>
+			<h2>What the measures mean</h2>
+			<p>A source row is not automatically one application, one LMIA, one position, one employer or one worker. The product will keep distinct measures for published records, approved LMIAs, requested LMIAs, approved positions and positions requested on negative decisions. “Approval rate” will not be published until its denominator is defensible.</p>
+		</section>
+
+		<section>
+			<h2>Identity without overclaiming</h2>
+			<p>Employer names will be searchable through normalized keys, but the original published string will remain visible. Similar names will not be silently merged. NOC versions will remain explicit, and exact addresses will not become accusations by implication.</p>
+		</section>
+	</main>
+
+	<Footer slot="footer" navCols={[
+		{ heading: 'The LMIA Record', links: [
+			{ label: 'Home', href: '/' },
+			{ label: '2025 Q1 pilot', href: '/quarter/2025-q1/' },
+			{ label: 'Source releases', href: '/releases/' },
+		]},
+	]} />
+</BaseLayout>
+
+<style>
+.methodology { padding: 2rem 0 3rem; max-width: 48rem; }
+.methodology section { padding: 2.25rem 0; border-bottom: 1px solid var(--sl-color-gray-5); }
+.methodology section:last-child { border-bottom: none; }
+.methodology h2 {
+	font-family: 'Fraunces Variable', 'Fraunces', serif;
+	font-size: clamp(1.55rem, 4vw, 2.2rem);
+	color: var(--sl-color-gray-1);
+	margin: 0 0 0.75rem;
+	border: none;
+}
+.methodology p { line-height: 1.75; color: var(--sl-color-gray-2); }
+.intro > p:last-child { font-size: 1.1rem; }
+.layers { list-style: none; margin: 1.25rem 0 0; padding: 0; counter-reset: layer; }
+.layers li {
+	display: grid;
+	grid-template-columns: 8rem 1fr;
+	gap: 1rem;
+	padding: 1rem 0;
+	border-top: 1px solid var(--sl-color-gray-6);
+}
+.layers strong { font-family: 'Fraunces Variable', 'Fraunces', serif; color: var(--sl-color-gray-1); }
+.layers span { color: var(--sl-color-gray-3); line-height: 1.55; }
+.blockers { margin: 1rem 0 0; padding-left: 1.2rem; color: var(--sl-color-gray-3); }
+.blockers li { margin: 0.5rem 0; line-height: 1.5; }
+@media (max-width: 32rem) { .layers li { grid-template-columns: 1fr; gap: 0.25rem; } }
+</style>

@@ -1,0 +1,303 @@
+---
+import summary from '../../../../data/published/2025q1/summary.json';
+import '../../../styles/theme.css';
+import BaseLayout from 'peanutbutter/src/components/BaseLayout.astro';
+import Masthead from 'peanutbutter/src/components/Masthead.astro';
+import Footer from 'peanutbutter/src/components/Footer.astro';
+import PGLink from 'peanutbutter/src/components/PGLink.astro';
+
+const fmt = new Intl.NumberFormat('en-CA');
+const dateFmt = new Intl.DateTimeFormat('en-CA', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+	timeZone: 'UTC',
+});
+const sources = [
+	summary.sources.find(source => source.status === 'positive'),
+	summary.sources.find(source => source.status === 'negative'),
+].filter(source => source !== undefined);
+const topApproved = summary.top_occupations_by_approved_positions.slice(0, 10);
+const topNegative = summary.top_occupations_by_negative_positions.slice(0, 10);
+---
+
+<BaseLayout
+	title="2025 Q1 — The LMIA Record"
+	description="A verified pilot view of Canada's published positive and negative LMIA employer lists for January through March 2025."
+>
+	<Masthead
+		slot="header"
+		icons="🥜📋"
+		location="Canada"
+		locationIcon="emojione-monotone:maple-leaf"
+		label="Public Data · Pilot"
+		est="12,026 HE"
+		title="2025 Q1 LMIA Record"
+		sub="January–March 2025 · verified source slice"
+		homeHref="/"
+	/>
+
+	<main class="record-layout quarter-page">
+		<PGLink type="page" href="/" label="Back to The LMIA Record" back>The LMIA Record</PGLink>
+
+		<section class="release-intro">
+			<div>
+				<p class="eyebrow">Publication status · pilot</p>
+				<h2>A small release with a complete chain of evidence</h2>
+				<p>This view combines the official English positive and negative employer lists for 2025 Q1. Every aggregate comes from a canonical record that retains its workbook, sheet, row and source checksum.</p>
+			</div>
+			<PGLink type="page" href="/methodology/" label="Read the publication methodology">Methodology</PGLink>
+		</section>
+
+		<section class="metrics" aria-label="2025 Q1 release totals">
+			<article><strong>{fmt.format(summary.totals.records)}</strong><span>published source rows</span></article>
+			<article><strong>{fmt.format(summary.totals.employer_keys)}</strong><span>searchable name keys</span></article>
+			<article class="positive"><strong>{fmt.format(summary.totals.approved_positions)}</strong><span>approved positions</span></article>
+			<article class="negative"><strong>{fmt.format(summary.totals.requested_positions_on_negative_decisions)}</strong><span>positions requested on negative decisions</span></article>
+		</section>
+		<p class="metric-caveat">These measures are intentionally not combined into an approval rate. Positions are not people, work permits or entries to Canada, and employer-name keys are search aids—not verified corporate identities.</p>
+
+		<section class="search-section" aria-labelledby="employer-search-heading">
+			<div class="section-head">
+				<div>
+					<p class="eyebrow">Employer-name search</p>
+					<h2 id="employer-search-heading">Find a published name</h2>
+					<p>Search is punctuation- and accent-insensitive. Results aggregate only exact normalized name keys; similar organizations are not silently merged.</p>
+				</div>
+				<label class="search-control">
+					<span>Employer name</span>
+					<input id="employer-search" type="search" placeholder="Try a restaurant, farm, hotel…" autocomplete="off" />
+				</label>
+			</div>
+			<p id="search-status" class="search-status" aria-live="polite">Type at least two characters to search {fmt.format(summary.totals.employer_keys)} employer-name keys.</p>
+			<div id="employer-results" class="employer-results"></div>
+		</section>
+
+		<section class="comparison" aria-labelledby="occupation-heading">
+			<div class="section-head compact">
+				<div>
+					<p class="eyebrow">Published occupations</p>
+					<h2 id="occupation-heading">Largest position counts</h2>
+				</div>
+			</div>
+			<div class="table-grid">
+				<div class="rank-table positive-table">
+					<h3>Positive decisions</h3>
+					<p>Ranked by approved positions.</p>
+					<ol>{topApproved.map(row => <li><span>{row.name}</span><strong>{fmt.format(row.approved_positions)}</strong></li>)}</ol>
+				</div>
+				<div class="rank-table negative-table">
+					<h3>Negative decisions</h3>
+					<p>Ranked by positions requested on negative decisions.</p>
+					<ol>{topNegative.map(row => <li><span>{row.name}</span><strong>{fmt.format(row.requested_positions_on_negative_decisions)}</strong></li>)}</ol>
+				</div>
+			</div>
+		</section>
+
+		<section class="sources" aria-labelledby="sources-heading">
+			<div class="section-head compact">
+				<div>
+					<p class="eyebrow">Provenance</p>
+					<h2 id="sources-heading">Two official resources, pinned exactly</h2>
+					<p>The source workbooks were published by Employment and Social Development Canada on the Government of Canada Open Data portal.</p>
+				</div>
+			</div>
+			<div class="source-grid">
+				{sources.map(source => (
+					<article class:list={['source-card', source.status]}>
+						<span class:list={['decision-chip', source.status]}>{source.status}</span>
+						<h3>{source.status === 'positive' ? 'Positive employer list' : 'Negative employer list'}</h3>
+						<dl>
+							<div><dt>Published</dt><dd>{dateFmt.format(new Date(`${source.published_at}T00:00:00Z`))}</dd></div>
+							<div><dt>Data rows</dt><dd class="num">{fmt.format(source.rows)}</dd></div>
+							<div><dt>Workbook</dt><dd><code>{source.filename}</code></dd></div>
+							<div><dt>Sheet</dt><dd>{source.sheet}</dd></div>
+							<div class="checksum"><dt>SHA-256</dt><dd><code>{source.sha256}</code></dd></div>
+						</dl>
+						<div class="source-links">
+							<PGLink type="official" href={source.resource_page_url} label={`Official ${source.status} resource page`}>Resource page</PGLink>
+							<PGLink type="source" href={source.download_url} label={`Download official ${source.status} workbook`}>Download XLSX</PGLink>
+						</div>
+					</article>
+				))}
+			</div>
+			<div class="provenance-note">
+				<strong>Row-level audit trail</strong>
+				<p>Canonical records use stable IDs derived from the official resource ID, sheet and workbook row. Raw published values remain beside normalized search fields in the audit dataset.</p>
+			</div>
+		</section>
+
+		<section class="limits" aria-labelledby="limits-heading">
+			<div><p class="eyebrow">Read before interpreting</p><h2 id="limits-heading">Source limits stay visible</h2></div>
+			<div class="limits-grid">
+				{summary.limitations.map(limit => <article><h3>{limit.code.replaceAll('-', ' ')}</h3><p>{limit.text}</p></article>)}
+				{summary.quality_notes.map(note => <article class="quality"><h3>source quality note</h3><p>{note.text}</p></article>)}
+			</div>
+		</section>
+	</main>
+
+	<Footer slot="footer" navCols={[
+		{ heading: 'The LMIA Record', links: [
+			{ label: 'Home', href: '/' },
+			{ label: 'Source releases', href: '/releases/' },
+			{ label: 'Methodology', href: '/methodology/' },
+		]},
+	]} />
+</BaseLayout>
+
+<script>
+	type SearchRow = [string, string, string, string[], number, number, number, number];
+	type SearchPayload = { schema_version: string; period: string; fields: string[]; employers: SearchRow[] };
+	const input = document.querySelector<HTMLInputElement>('#employer-search');
+	const status = document.querySelector<HTMLElement>('#search-status');
+	const results = document.querySelector<HTMLElement>('#employer-results');
+	let dataPromise: Promise<SearchPayload> | undefined;
+
+	function searchKey(value: string) {
+		return value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('en-CA')
+			.replace(/[^\p{L}\p{N}]+/gu, ' ').trim().replace(/\s+/g, ' ');
+	}
+	function loadData() {
+		dataPromise ??= fetch('/data/2025q1/employers.json').then(response => {
+			if (!response.ok) throw new Error(`Search index returned ${response.status}`);
+			return response.json() as Promise<SearchPayload>;
+		});
+		return dataPromise;
+	}
+	function metric(label: string, value: number) {
+		const item = document.createElement('span');
+		const number = document.createElement('strong');
+		number.textContent = value.toLocaleString('en-CA');
+		item.append(number, ` ${label}`);
+		return item;
+	}
+	function resultCard(row: SearchRow) {
+		const [, name, , provinces, positiveRecords, negativeRecords, approvedPositions, negativePositions] = row;
+		const article = document.createElement('article');
+		article.className = 'employer-card';
+		const heading = document.createElement('h3');
+		heading.textContent = name;
+		const place = document.createElement('p');
+		place.className = 'employer-place';
+		place.textContent = provinces.length ? provinces.join(' · ') : 'Province not published';
+		const measures = document.createElement('div');
+		measures.className = 'employer-measures';
+		if (positiveRecords) {
+			measures.append(metric('approved positions', approvedPositions));
+			measures.append(metric('positive rows', positiveRecords));
+		}
+		if (negativeRecords) {
+			measures.append(metric('positions on negative decisions', negativePositions));
+			measures.append(metric('negative rows', negativeRecords));
+		}
+		article.append(heading, place, measures);
+		return article;
+	}
+	async function applySearch() {
+		const rawQuery = input?.value ?? '';
+		const query = searchKey(rawQuery);
+		if (!results || !status) return;
+		if (query.length < 2) {
+			results.replaceChildren();
+			status.textContent = 'Type at least two characters to search the employer-name index.';
+			return;
+		}
+		status.textContent = 'Loading verified employer-name index…';
+		try {
+			const payload = await loadData();
+			if (searchKey(input?.value ?? '') !== query) return;
+			const matches = payload.employers.filter(row => row[2].includes(query)).sort((a, b) => {
+				const aStarts = a[2].startsWith(query) ? 0 : 1;
+				const bStarts = b[2].startsWith(query) ? 0 : 1;
+				return aStarts - bStarts || b[6] + b[7] - a[6] - a[7] || a[1].localeCompare(b[1]);
+			});
+			const shown = matches.slice(0, 30);
+			results.replaceChildren(...shown.map(resultCard));
+			status.textContent = matches.length
+				? `${matches.length.toLocaleString('en-CA')} name key${matches.length === 1 ? '' : 's'} match “${rawQuery.trim()}”${matches.length > shown.length ? '; showing the first 30' : ''}.`
+				: `No employer-name keys match “${rawQuery.trim()}”.`;
+		} catch {
+			results.replaceChildren();
+			status.textContent = 'The employer-name index could not be loaded.';
+		}
+	}
+	if (input) {
+		input.value = new URLSearchParams(window.location.search).get('q') ?? '';
+		input.addEventListener('input', applySearch);
+		applySearch();
+	}
+</script>
+
+<style>
+.quarter-page { padding: 2rem 0 4rem; }
+.release-intro, .section-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; }
+.release-intro { padding: 2.5rem 0 2rem; }
+.release-intro > div, .section-head > div { max-width: 48rem; }
+h2 { font-family: 'Fraunces Variable', 'Fraunces', serif; font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.15; color: var(--sl-color-gray-1); margin: 0.25rem 0 0.65rem; border: none; }
+.release-intro p:not(.eyebrow), .section-head p:not(.eyebrow) { margin: 0; line-height: 1.65; color: var(--sl-color-gray-3); }
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--sl-color-gray-5); border-radius: 0.55rem; overflow: hidden; }
+.metrics article { padding: 1.3rem; border-right: 1px solid var(--sl-color-gray-5); background: var(--sl-color-gray-7); }
+.metrics article:last-child { border-right: 0; }
+.metrics article.positive { box-shadow: inset 0 3px var(--record-positive); }
+.metrics article.negative { box-shadow: inset 0 3px var(--record-negative); }
+.metrics strong { display: block; font: 700 1.8rem/1.1 'Fraunces Variable', 'Fraunces', serif; color: var(--sl-color-gray-1); }
+.metrics span { display: block; margin-top: 0.35rem; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: var(--sl-color-gray-3); }
+.metric-caveat { margin: 0.8rem 0 0; font-size: 0.78rem; line-height: 1.55; color: var(--sl-color-gray-4); }
+.search-section, .comparison, .sources, .limits { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--sl-color-gray-5); }
+.search-control { width: min(100%, 23rem); flex: 0 0 23rem; }
+.search-control span { display: block; margin-bottom: 0.4rem; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sl-color-gray-3); }
+.search-control input { width: 100%; padding: 0.8rem 0.9rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.4rem; background: var(--sl-color-bg); color: var(--sl-color-text); font: inherit; }
+.search-control input:focus { outline: 3px solid var(--sl-color-accent-low); border-color: var(--sl-color-accent); }
+.search-status { min-height: 1.3rem; margin: 1.25rem 0 0.7rem; font-size: 0.78rem; color: var(--sl-color-gray-4); }
+.employer-results { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+:global(.employer-card) { padding: 1rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.45rem; background: var(--sl-color-gray-7); }
+:global(.employer-card h3) { margin: 0; font: 700 1rem/1.3 'Fraunces Variable', 'Fraunces', serif; color: var(--sl-color-gray-1); }
+:global(.employer-place) { margin: 0.3rem 0 0.65rem; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; color: var(--sl-color-gray-4); }
+:global(.employer-measures) { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; font-size: 0.72rem; color: var(--sl-color-gray-3); }
+:global(.employer-measures strong) { color: var(--sl-color-gray-1); font-variant-numeric: tabular-nums; }
+.table-grid, .source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.25rem; }
+.rank-table { padding: 1.2rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem; background: var(--sl-color-gray-7); }
+.positive-table { border-top: 3px solid var(--record-positive); }
+.negative-table { border-top: 3px solid var(--record-negative); }
+.rank-table h3, .source-card h3 { margin: 0; font: 700 1.25rem/1.25 'Fraunces Variable', 'Fraunces', serif; color: var(--sl-color-gray-1); }
+.rank-table > p { margin: 0.25rem 0 1rem; font-size: 0.75rem; color: var(--sl-color-gray-4); }
+.rank-table ol { margin: 0; padding: 0; list-style: none; counter-reset: occupations; }
+.rank-table li { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.65rem 0; border-top: 1px solid var(--sl-color-gray-6); counter-increment: occupations; font-size: 0.78rem; color: var(--sl-color-gray-3); }
+.rank-table li span::before { content: counter(occupations) '. '; color: var(--sl-color-gray-4); }
+.rank-table li strong { color: var(--sl-color-gray-1); font-variant-numeric: tabular-nums; }
+.source-card { padding: 1.25rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem; background: var(--sl-color-gray-7); }
+.source-card.positive { border-top: 3px solid var(--record-positive); }
+.source-card.negative { border-top: 3px solid var(--record-negative); }
+.decision-chip { display: inline-flex; margin-bottom: 0.65rem; padding: 0.22rem 0.48rem; border-radius: 999px; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.decision-chip.positive { color: #9ed2ab; background: #193c25; }
+.decision-chip.negative { color: #e4a99f; background: #482019; }
+:global([data-theme='light']) .decision-chip.positive { color: #245d36; background: #dcecdf; }
+:global([data-theme='light']) .decision-chip.negative { color: #843c31; background: #f1dfdc; }
+.source-card dl { margin: 1rem 0; }
+.source-card dl > div { display: grid; grid-template-columns: 6rem 1fr; gap: 0.6rem; padding: 0.45rem 0; border-top: 1px solid var(--sl-color-gray-6); }
+.source-card dt { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sl-color-gray-4); }
+.source-card dd { margin: 0; font-size: 0.75rem; color: var(--sl-color-gray-2); min-width: 0; }
+.source-card code { font-size: 0.67rem; overflow-wrap: anywhere; color: var(--sl-color-gray-2); }
+.source-links { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.provenance-note { margin-top: 1rem; padding: 1rem 1.1rem; border-left: 4px solid var(--sl-color-accent); background: var(--sl-color-gray-7); }
+.provenance-note strong { font-family: 'Fraunces Variable', 'Fraunces', serif; color: var(--sl-color-gray-1); }
+.provenance-note p { margin: 0.25rem 0 0; font-size: 0.82rem; line-height: 1.55; color: var(--sl-color-gray-3); }
+.limits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
+.limits-grid article { padding: 1rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.45rem; }
+.limits-grid article.quality { border-color: var(--record-paper); }
+.limits-grid h3 { margin: 0 0 0.35rem; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sl-color-gray-2); }
+.limits-grid p { margin: 0; font-size: 0.8rem; line-height: 1.55; color: var(--sl-color-gray-3); }
+@media (max-width: 50rem) {
+	.metrics { grid-template-columns: 1fr 1fr; }
+	.metrics article:nth-child(2) { border-right: 0; }
+	.metrics article:nth-child(-n+2) { border-bottom: 1px solid var(--sl-color-gray-5); }
+	.release-intro, .section-head { align-items: flex-start; flex-direction: column; }
+	.search-control { flex-basis: auto; }
+}
+@media (max-width: 40rem) { .employer-results, .table-grid, .source-grid, .limits-grid { grid-template-columns: 1fr; } }
+@media (max-width: 28rem) {
+	.metrics { grid-template-columns: 1fr; }
+	.metrics article { border-right: 0; border-bottom: 1px solid var(--sl-color-gray-5); }
+	.metrics article:last-child { border-bottom: 0; }
+}
+</style>

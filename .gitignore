@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.venv/
+.DS_Store
+data/raw/
+data/normalized/
+processor/__pycache__/
+*.pyc

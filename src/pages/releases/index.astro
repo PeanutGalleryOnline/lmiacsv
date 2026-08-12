@@ -1,0 +1,222 @@
+---
+import catalogue from '../../../content/releases/index.json';
+import '../../styles/theme.css';
+import BaseLayout from 'peanutbutter/src/components/BaseLayout.astro';
+import Masthead from 'peanutbutter/src/components/Masthead.astro';
+import Footer from 'peanutbutter/src/components/Footer.astro';
+import PGLink from 'peanutbutter/src/components/PGLink.astro';
+import FoundationNotice from '../../components/FoundationNotice.astro';
+
+const releases = [...catalogue.releases].sort((a, b) =>
+	(b.year ?? 0) - (a.year ?? 0) ||
+	(b.quarter ?? '').localeCompare(a.quarter ?? '') ||
+	a.filename.localeCompare(b.filename)
+);
+const fmt = new Intl.NumberFormat('en-CA');
+---
+
+<BaseLayout title="Source Releases — The LMIA Record" description="Inventory of legacy LMIA source releases and unresolved provenance work.">
+	<Masthead
+		slot="header"
+		icons="🥜📋"
+		location="Canada"
+		locationIcon="emojione-monotone:maple-leaf"
+		label="Public Data"
+		est="12,026 HE"
+		title="Source Releases"
+		sub="The files behind the record"
+		homeHref="/"
+	/>
+
+	<main class="record-layout releases-page">
+		<PGLink type="page" href="/" label="Back to The LMIA Record">The LMIA Record</PGLink>
+		<section class="verified-release">
+			<div>
+				<p class="eyebrow">Verified pilot release</p>
+				<h2>2025 Q1 is through the publication gate</h2>
+				<p>Two official workbooks, 20,586 canonical records, pinned checksums and source-row provenance. It is presented separately from the unresolved legacy catalogue below.</p>
+			</div>
+			<PGLink type="page" href="/quarter/2025-q1/" label="Explore the verified 2025 Q1 pilot">Explore Q1 2025</PGLink>
+		</section>
+		<FoundationNotice title="Legacy catalogue" />
+
+		<section class="catalogue-head">
+			<div>
+				<p class="eyebrow">{releases.length} CSV files</p>
+				<h2>Every source must earn its place</h2>
+				<p>Checksums and structural metadata are known. Government URLs and duplicate relationships are not yet resolved, so every row remains marked as a legacy source.</p>
+			</div>
+			<label class="filter">
+				<span>Filter releases</span>
+				<input id="release-filter" type="search" placeholder="2025, negative, filename…" autocomplete="off" />
+			</label>
+		</section>
+
+		<p id="result-count" class="result-count" aria-live="polite">Showing all {releases.length} releases</p>
+
+		<div class="table-wrap">
+			<table>
+				<thead>
+					<tr>
+						<th>Period</th>
+						<th>Decision list</th>
+						<th>File</th>
+						<th class="right">Rows</th>
+						<th>Provenance</th>
+					</tr>
+				</thead>
+				<tbody>
+					{releases.map(release => {
+						const searchable = [release.year, release.quarter, release.status, release.filename, ...release.columns].filter(Boolean).join(' ').toLowerCase();
+						return (
+							<tr data-release-row data-search={searchable}>
+								<td class="period"><strong>{release.year ?? 'Unknown'}</strong><span>{release.quarter ?? 'Annual / unresolved'}</span></td>
+								<td><span class:list={['decision', release.status]}>{release.status ?? 'Unresolved'}</span></td>
+								<td class="filename"><code>{release.filename}</code>{release.has_xlsx_pair && <small>XLSX pair present</small>}</td>
+								<td class="right num">{fmt.format(release.row_count)}</td>
+								<td><span class="provenance">Source URL missing</span></td>
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+		</div>
+		<p id="no-results" class="no-results" hidden>No releases match that filter.</p>
+	</main>
+
+	<Footer slot="footer" navCols={[
+		{ heading: 'The LMIA Record', links: [
+			{ label: 'Home', href: '/' },
+			{ label: '2025 Q1 pilot', href: '/quarter/2025-q1/' },
+			{ label: 'Methodology', href: '/methodology/' },
+		]},
+	]} />
+</BaseLayout>
+
+<script>
+	const input = document.querySelector<HTMLInputElement>('#release-filter');
+	const rows = [...document.querySelectorAll<HTMLElement>('[data-release-row]')];
+	const count = document.querySelector<HTMLElement>('#result-count');
+	const empty = document.querySelector<HTMLElement>('#no-results');
+
+	function applyFilter() {
+		const query = (input?.value ?? '').trim().toLowerCase();
+		let visible = 0;
+		for (const row of rows) {
+			const show = !query || (row.dataset.search ?? '').includes(query);
+			row.hidden = !show;
+			if (show) visible++;
+		}
+		if (count) count.textContent = query
+			? `${visible} release${visible === 1 ? '' : 's'} match “${query}”`
+			: `Showing all ${rows.length} releases`;
+		if (empty) empty.hidden = visible !== 0;
+	}
+
+	if (input) {
+		input.value = new URLSearchParams(window.location.search).get('q') ?? '';
+		input.addEventListener('input', applyFilter);
+		applyFilter();
+	}
+</script>
+
+<style>
+.releases-page { padding: 2rem 0 3rem; }
+.verified-release {
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
+	gap: 2rem;
+	margin: 2rem 0;
+	padding: 1.4rem;
+	border: 1px solid var(--record-positive);
+	border-radius: 0.5rem;
+	background: color-mix(in srgb, var(--record-positive) 9%, var(--sl-color-bg));
+}
+.verified-release h2 {
+	font-family: 'Fraunces Variable', 'Fraunces', serif;
+	font-size: clamp(1.4rem, 4vw, 2rem);
+	color: var(--sl-color-gray-1);
+	margin: 0.2rem 0 0.45rem;
+	border: none;
+}
+.verified-release p:not(.eyebrow) { margin: 0; max-width: 44rem; color: var(--sl-color-gray-3); line-height: 1.55; }
+.catalogue-head {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
+	gap: 3rem;
+	align-items: end;
+	margin-top: 2.5rem;
+}
+.catalogue-head h2 {
+	font-family: 'Fraunces Variable', 'Fraunces', serif;
+	font-size: clamp(1.7rem, 4vw, 2.4rem);
+	color: var(--sl-color-gray-1);
+	margin: 0.25rem 0 0.65rem;
+	border: none;
+}
+.catalogue-head p:not(.eyebrow) {
+	margin: 0;
+	max-width: 46rem;
+	line-height: 1.6;
+	color: var(--sl-color-gray-3);
+}
+.filter span {
+	display: block;
+	margin-bottom: 0.4rem;
+	font-size: 0.68rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--sl-color-gray-3);
+}
+.filter input {
+	width: 100%;
+	padding: 0.7rem 0.8rem;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0.4rem;
+	background: var(--sl-color-bg);
+	color: var(--sl-color-text);
+	font: inherit;
+}
+.filter input:focus {
+	outline: 3px solid var(--sl-color-accent-low);
+	border-color: var(--sl-color-accent);
+}
+.result-count {
+	margin: 2rem 0 0.6rem;
+	font-size: 0.75rem;
+	color: var(--sl-color-gray-4);
+}
+.table-wrap { overflow-x: auto; border: 1px solid var(--sl-color-gray-5); border-radius: 0.45rem; }
+table { width: 100%; border-collapse: collapse; min-width: 52rem; }
+th, td { padding: 0.8rem 0.9rem; text-align: left; border-bottom: 1px solid var(--sl-color-gray-6); vertical-align: top; }
+th { font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sl-color-gray-3); background: var(--sl-color-gray-7); }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--sl-color-gray-7); }
+.right { text-align: right; }
+.period strong, .period span { display: block; }
+.period span, .filename small { margin-top: 0.15rem; font-size: 0.68rem; color: var(--sl-color-gray-4); }
+.filename code { font-size: 0.72rem; overflow-wrap: anywhere; color: var(--sl-color-gray-2); }
+.filename small { display: block; }
+.decision, .provenance {
+	display: inline-flex;
+	padding: 0.22rem 0.45rem;
+	border-radius: 999px;
+	font-size: 0.62rem;
+	font-weight: 800;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+.decision.positive { color: #9ed2ab; background: #193c25; }
+.decision.negative { color: #e4a99f; background: #482019; }
+:global([data-theme='light']) .decision.positive { color: #245d36; background: #dcecdf; }
+:global([data-theme='light']) .decision.negative { color: #843c31; background: #f1dfdc; }
+.provenance { color: var(--sl-color-gray-3); background: var(--sl-color-gray-6); }
+.no-results { padding: 2rem; text-align: center; color: var(--sl-color-gray-3); }
+
+@media (max-width: 46rem) {
+	.catalogue-head { grid-template-columns: 1fr; gap: 1.5rem; }
+	.verified-release { align-items: flex-start; flex-direction: column; }
+}
+</style>

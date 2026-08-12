@@ -1,0 +1,94 @@
+{
+  "id": "2025-q1",
+  "period": {
+    "year": 2025,
+    "quarter": "Q1",
+    "start": "2025-01-01",
+    "end": "2025-03-31"
+  },
+  "publisher": "Employment and Social Development Canada",
+  "licence": {
+    "name": "Open Government Licence - Canada",
+    "url": "https://open.canada.ca/en/open-government-licence-canada"
+  },
+  "resources": [
+    {
+      "id": "2025-q1-positive-en",
+      "status": "positive",
+      "language": "en",
+      "dataset_id": "90fed587-1364-4f33-a9ee-208181dc0b97",
+      "resource_id": "f995383c-800e-46dd-92fa-a06ec7a9a706",
+      "dataset_page_url": "https://open.canada.ca/data/en/dataset/90fed587-1364-4f33-a9ee-208181dc0b97",
+      "resource_page_url": "https://open.canada.ca/data/en/dataset/90fed587-1364-4f33-a9ee-208181dc0b97/resource/f995383c-800e-46dd-92fa-a06ec7a9a706",
+      "download_url": "https://open.canada.ca/data/dataset/90fed587-1364-4f33-a9ee-208181dc0b97/resource/f995383c-800e-46dd-92fa-a06ec7a9a706/download/tfwp_2025q1_pos_en.xlsx",
+      "filename": "tfwp_2025q1_pos_en.xlsx",
+      "sheet": "Positive",
+      "published_at": "2025-06-19",
+      "last_modified": "2025-06-19T17:27:45.376347",
+      "sha256": "e8828f20e99ed2fa426851ce5310429de68c4535dce960ac131c41bbb2b8f278",
+      "expected_rows": 17952,
+      "expected_headers": [
+        "Province/Territory",
+        "Program Stream",
+        "Employer",
+        "Address",
+        "Occupation",
+        "Incorporate Status",
+        "Approved LMIAs",
+        "Approved Positions"
+      ]
+    },
+    {
+      "id": "2025-q1-negative-en",
+      "status": "negative",
+      "language": "en",
+      "dataset_id": "f82f66f2-a22b-4511-bccf-e1d74db39ae5",
+      "resource_id": "6a36e73c-b2ac-438e-b603-56ceea01c56b",
+      "dataset_page_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5",
+      "resource_page_url": "https://open.canada.ca/data/en/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6a36e73c-b2ac-438e-b603-56ceea01c56b",
+      "download_url": "https://open.canada.ca/data/dataset/f82f66f2-a22b-4511-bccf-e1d74db39ae5/resource/6a36e73c-b2ac-438e-b603-56ceea01c56b/download/tfwp_2025q1_neg_en.xlsx",
+      "filename": "tfwp_2025q1_neg_en.xlsx",
+      "sheet": "Negative",
+      "published_at": "2025-06-19",
+      "last_modified": "2025-06-19T18:01:50.732295",
+      "sha256": "a6e2d1160089565ed83f0afa3ad59af0773802f45b15d12fed8711696b68ff61",
+      "expected_rows": 2634,
+      "expected_headers": [
+        "Province/Territory",
+        "Program Stream",
+        "Employer",
+        "Address",
+        "Occupation",
+        "Incorporate Status",
+        "Requested LMIAs",
+        "Requested Positions"
+      ]
+    }
+  ],
+  "limitations": [
+    {
+      "code": "personal-names-excluded",
+      "text": "The source lists exclude personal names, including some caregiver employers and business names containing personal names, so they are not complete employer lists."
+    },
+    {
+      "code": "employer-names-manually-entered",
+      "text": "Employer names are manually entered in the source system and may contain data-entry errors or inconsistent spelling."
+    },
+    {
+      "code": "positions-not-workers",
+      "text": "Position counts describe positions on LMIA decisions, not work permits issued or temporary foreign workers who entered Canada."
+    },
+    {
+      "code": "positive-positions-may-not-be-filled",
+      "text": "A position on a positive LMIA may not lead to a work permit and may later be cancelled by the employer."
+    },
+    {
+      "code": "negative-reasons-not-row-level",
+      "text": "The negative list does not publish a decision reason for each employer record."
+    },
+    {
+      "code": "figures-may-be-revised",
+      "text": "The publisher notes that figures can differ from earlier releases as the source system is updated over time."
+    }
+  ]
+}
