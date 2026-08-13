@@ -27,24 +27,30 @@ from lmiacsv.scrape_catalogue import CatalogueError, write_json
 WORKSPACE_ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = WORKSPACE_ROOT / "data" / "raw" / "employer-lists" / "manifest.json"
 DEFAULT_OUTPUT_PATH = (
-    WORKSPACE_ROOT / "data" / "published" / "catalogue" / "employer-resource-census.json"
+    WORKSPACE_ROOT / "data" / "meta" / "employers.census.json"
 )
 MAX_SCAN_ROWS = 250_000
 MAX_SCAN_COLUMNS = 50
 HEADER_SCAN_ROWS = 30
 HEADER_TERMS = (
     "employer",
+    "employeur",
     "province",
     "territory",
     "program stream",
+    "volet",
     "stream",
     "occupation",
+    "profession",
     "noc",
     "address",
+    "adresse",
     "location",
     "positions",
+    "postes",
     "labour market impact assessment",
     "lmia",
+    "eimt",
     "incorporate",
 )
 NOTE_RE = re.compile(r"^(notes?|remarques?)\s*:?$", re.I)
@@ -278,12 +284,16 @@ def decision_signal(header: dict[str, Any]) -> str | None:
         "approved lmia" in joined
         or "approved positions" in joined
         or "positions approved" in joined
+        or "eimt approuves" in joined
+        or "postes approuves" in joined
     ):
         return "positive"
     if (
         "requested lmia" in joined
         or "requested positions" in joined
         or "positions requested" in joined
+        or "eimt demandes" in joined
+        or "postes demandes" in joined
     ):
         return "negative"
     return None

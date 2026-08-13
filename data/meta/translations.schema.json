@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "product": "translations.csv",
+  "grain": "stable translation key",
+  "primary_key": [
+    "translation_key"
+  ],
+  "fields": [
+    "translation_key",
+    "category",
+    "en",
+    "fr",
+    "translation_basis",
+    "verification_status",
+    "en_observation_count",
+    "fr_observation_count",
+    "source_variants_en",
+    "source_variants_fr",
+    "notes"
+  ],
+  "row_count": 46,
+  "contracts": [
+    "Source-value rows cite observation counts and literal variants from the bilingual reconciliation ledger.",
+    "Observation counts measure nonblank literal source cells; grouped blanks that are forward-filled during parsing are not counted as repeated spellings.",
+    "Editorial and interface phrases are marked not_a_record_value_check.",
+    "Literal source code 99 is retained without inventing a French translation.",
+    "Versioned NOC/CNP titles and definitions remain in noc.csv and noc-crosswalk.csv; they are source data, not common phrases."
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "schema_version": "0.2.0",
+  "sources": [
+    {
+      "source_id": "noc-2011-structure-en",
+      "source_kind": "classification_structure",
+      "noc_version": "2011",
+      "noc_release": "NOC 2011",
+      "source_version": null,
+      "target_version": null,
+      "language": "en",
+      "page_url": "https://www.statcan.gc.ca/en/subjects/standard/noc/2011/index",
+      "download_suffix": "/noc-cnp-2011-structure-eng.csv",
+      "expected_unit_groups": 500,
+      "title": "NOC 2011 - Classification structure (CSV, 234.27 KB)",
+      "download_url": "https://www.statcan.gc.ca/en/statistical-programs/document/noc-cnp-2011-structure-eng.csv",
+      "source_filename": "noc-cnp-2011-structure-eng.csv",
+      "format": "CSV",
+      "publisher": "Statistics Canada / Statistique Canada",
+      "page_snapshot": {
+        "sha256": "27b4bcf90ce3970ec3231c393b8f221e3a562f8f0aa82302e34fc22385ca6d4e",
+        "bytes": 22774
+      }
+    },
+    {
+      "source_id": "noc-2011-structure-fr",
+      "source_kind": "classification_structure",
+      "noc_version": "2011",
+      "noc_release": "CNP 2011",
+      "source_version": null,
+      "target_version": null,
+      "language": "fr",
+      "page_url": "https://www.statcan.gc.ca/fr/sujets/norme/cnp/2011/index",
+      "download_suffix": "/noc-cnp-2011-structure-fra.csv",
+      "expected_unit_groups": 500,
+      "title": "CNP 2011 - Structure de la classification (CSV, 312.03 Ko)",
+      "download_url": "https://www.statcan.gc.ca/fr/programmes-statistiques/document/noc-cnp-2011-structure-fra.csv",
+      "source_filename": "noc-cnp-2011-structure-fra.csv",
+      "format": "CSV",
+      "publisher": "Statistics Canada / Statistique Canada",
+      "page_snapshot": {
+        "sha256": "4699e7b097cd27fd2a54becf35162f8b3d9345560ba9cdf0159a023c8d36480e",
+        "bytes": 23753
+      }
+    },
+    {
+      "source_id": "noc-2016-v1.3-structure-en",
+      "source_kind": "classification_structure",
+      "noc_version": "2016",
+      "noc_release": "NOC 2016 Version 1.3",
+      "source_version": null,
+      "target_version": null,
+      "language": "en",
+      "page_url": "https://www.statcan.gc.ca/en/subjects/standard/noc/2016/indexV1.3",
+      "download_suffix": "/noc-cnp-2016-structure-v4-eng.csv",
+      "expected_unit_groups": 500,
+      "title": "NOC 2016 Version 1.3 - Classification structure (CSV, 318 KB)",
+      "download_url": "https://www.statcan.gc.ca/en/statistical-programs/document/noc-cnp-2016-structure-v4-eng.csv",
+      "source_filename": "noc-cnp-2016-structure-v4-eng.csv",
+      "format": "CSV",
+      "publisher": "Statistics Canada / Statistique Canada",
+      "page_snapshot": {
+        "sha256": "01d0c07e83c03020efae9063447330ae57878483f640ec9ec5e086b30edd5ca9",
+        "bytes": 21170
+      }
+    },
+    {
+      "source_id": "noc-2016-v1.3-structure-fr",
+      "source_kind": "classification_structure",
+      "noc_version": "2016",
+      "noc_release": "CNP 2016 version 1.3",
+      "source_version": null,
+      "target_version": null,
+      "language": "fr",
+      "page_url": "https://www.statcan.gc.ca/fr/sujets/norme/cnp/2016/indexV1.3",
+      "download_suffix": "/noc-cnp-2016-structure-v4-fra.csv",
+      "expected_unit_groups": 500,
+      "title": "CNP 2016 version 1.3 - Structure de la classification (CSV, 421.05 Ko)",
+      "download_url": "https://www.statcan.gc.ca/fr/programmes-statistiques/document/noc-cnp-2016-structure-v4-fra.csv",
+      "source_filename": "noc-cnp-2016-structure-v4-fra.csv",
+      "format": "CSV",
+      "publisher": "Statistics Canada / Statistique Canada",
+      "page_snapshot": {
+        "sha256": "8e7d4e97ccf5de8e60249ab8eb820f9c23cf03d95ce008f82afb7ea27ab3d3b0",
+        "bytes": 21946
+      }
+    },
+    {
+      "source_id": "noc-2021-v1.0-structure-en",
+      "source_kind": "classification_structure",
+      "noc_version": "2021",
+      "noc_release": "NOC 2021 Version 1.0",
+      "source_version": null,
+      "target_version": null,
+      "language": "en",
+      "page_url": "https://www.statcan.gc.ca/en/subjects/standard/noc/2021/indexV1",
+      "download_suffix": "/noc-2021-v1.0-classification-structure.csv",
+      "expected_unit_groups": 516,
+      "title": "NOC 2021 Version 1.0 - Classification structure (CSV, 384.72 KB)",
+      "download_url": "https://www.statcan.gc.ca/en/subjects/standard/noc/2021/indexV1/noc-2021-v1.0-classification-structure.csv",
+      "source_filename": "noc-2021-v1.0-classification-structure.csv",
+      "format": "CSV",
+      "publisher": "Statistics Canada / Statistique Canada",
+      "page_snapshot": {
+        "sha256": "20d634380ccda2541b4275ad037d3d991273b11ec7c75b343928837c9490dde9",
+        "bytes": 24856
+      }
+    },
+    {
+      "source_id": "noc-2021-v1.0-structure-fr",
+      "source_kind": "classification_structure",
+      "noc_version": "2021",
+      "noc_release": "CNP 2021 version 1.0",
+      "source_version": null,
+      "target_version": null,
+      "language": "fr",
+      "page_url": "https://www.statcan.gc.ca/fr/sujets/norme/cnp/2021/indexV1",
+      "download_suffix": "/cnp-2021-v1.0-structure-classification.csv",
+      "expected_unit_groups": 516,
+      "title": "CNP 2021 version 1.0 - Structure de la classification (CSV, 524.27 Ko)",
+      "download_url": "https://www.statcan.gc.ca/fr/sujets/norme/cnp/2021/indexV1/cnp-2021-v1.0-structure-classification.csv",
+      "source_filename": "cnp-2021-v1.0-structure-classification.csv",
+      "format": "CSV",
+      "publisher": "Statistics Canada / Statistique Canada",
+      "page_snapshot": {
+        "sha256": "96c24f9bfba5be023caecc75708c7c6ed2b56bdd4068b669807615c42139cbf4",
+        "bytes": 25848
+      }
+    },
+    {
+      "source_id": "noc-2016-v1.3-to-2021-v1.0-en",
+      "source_kind": "correspondence",
+      "noc_version": null,
+      "noc_release": null,
+      "source_version": "2016",
+      "target_version": "2021",
+      "language": "en",
+      "page_url": "https://www.statcan.gc.ca/en/statistical-programs/document/noc2016v1_3-noc2021v1_0",
+      "download_suffix": "/noc2016v1_3-noc2021v1_0-eng.csv",
+      "expected_unit_groups": null,
+      "title": "Correspondence Table: National Occupational Classification (NOC) 2016 V1.3 to National Occupational Classification (NOC) 2021 V1.0 based on GSIM (CSV, 92.26 KB)",
+      "download_url": "https://www.statcan.gc.ca/en/statistical-programs/document/noc2016v1_3-noc2021v1_0-eng.csv",
+      "source_filename": "noc2016v1_3-noc2021v1_0-eng.csv",
+      "format": "CSV",
+      "publisher": "Statistics Canada / Statistique Canada",
+      "page_snapshot": {
+        "sha256": "6095b366d941ef7cd0c63354ba68266788348ac850a953d9bd1f2c3ed42cf5f6",
+        "bytes": 165947
+      }
+    },
+    {
+      "source_id": "noc-2016-v1.3-to-2021-v1.0-fr",
+      "source_kind": "correspondence",
+      "noc_version": null,
+      "noc_release": null,
+      "source_version": "2016",
+      "target_version": "2021",
+      "language": "fr",
+      "page_url": "https://www.statcan.gc.ca/fr/programmes-statistiques/document/noc2016v1_3-noc2021v1_0",
+      "download_suffix": "/noc2016v1_3-noc2021v1_0-fra.csv",
+      "expected_unit_groups": null,
+      "title": "Tableau de correspondance entre la Classification nationale des professions (CNP) 2016 v1.3 et la Classification nationale des professions (CNP) 2021 v1.0 (CSV, 134.18 Ko)",
+      "download_url": "https://www.statcan.gc.ca/fr/programmes-statistiques/document/noc2016v1_3-noc2021v1_0-fra.csv",
+      "source_filename": "noc2016v1_3-noc2021v1_0-fra.csv",
+      "format": "CSV",
+      "publisher": "Statistics Canada / Statistique Canada",
+      "page_snapshot": {
+        "sha256": "dac3bb04028eb6ecf998dfef06f765a6fe5ed2f4cfcdbf93147a50cb989f8e6f",
+        "bytes": 210543
+      }
+    }
+  ],
+  "checks": [
+    "Each CSV URL was discovered on its official Statistics Canada page.",
+    "Every resolved download uses HTTPS on www.statcan.gc.ca.",
+    "The catalogue includes paired English/French NOC/CNP 2011, 2016 V1.3, and 2021 V1.0 structures plus the paired official 2016-to-2021 correspondence."
+  ]
+}

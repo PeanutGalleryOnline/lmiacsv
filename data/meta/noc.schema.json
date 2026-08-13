@@ -1,0 +1,103 @@
+{
+  "schema_version": "0.2.0",
+  "products": {
+    "noc.csv": {
+      "grain": "NOC version × official unit-group code",
+      "primary_key": [
+        "noc_version",
+        "noc_code"
+      ],
+      "join_to_lmia_employer_records": [
+        "noc_version",
+        "noc_code"
+      ],
+      "languages": [
+        "en",
+        "fr"
+      ],
+      "language_contract": "Human-readable labels, definitions, and source provenance are paired from official English NOC and French CNP publications.",
+      "fields": [
+        "noc_version",
+        "noc_release_en",
+        "noc_release_fr",
+        "noc_code",
+        "title_en",
+        "title_fr",
+        "definition_en",
+        "definition_fr",
+        "teer_category",
+        "broad_category_code",
+        "broad_category_title_en",
+        "broad_category_title_fr",
+        "major_group_code",
+        "major_group_title_en",
+        "major_group_title_fr",
+        "sub_major_group_code",
+        "sub_major_group_title_en",
+        "sub_major_group_title_fr",
+        "minor_group_code",
+        "minor_group_title_en",
+        "minor_group_title_fr",
+        "source_id_en",
+        "source_id_fr",
+        "source_page_url_en",
+        "source_page_url_fr",
+        "source_download_url_en",
+        "source_download_url_fr",
+        "source_sha256_en",
+        "source_sha256_fr",
+        "source_row_en",
+        "source_row_fr"
+      ]
+    },
+    "noc-crosswalk.csv": {
+      "grain": "source NOC version/code × target NOC 2021 code correspondence",
+      "primary_key": [
+        "source_version",
+        "source_code",
+        "target_code"
+      ],
+      "languages": [
+        "en",
+        "fr"
+      ],
+      "language_contract": "Titles use the paired English/French structure dimensions; GSIM change descriptions, notes, and provenance are paired from the official English and French correspondence files.",
+      "fields": [
+        "source_version",
+        "source_release_en",
+        "source_release_fr",
+        "source_code",
+        "source_title_en",
+        "source_title_fr",
+        "target_version",
+        "target_release_en",
+        "target_release_fr",
+        "target_code",
+        "target_title_en",
+        "target_title_fr",
+        "mapping_cardinality",
+        "mapping_basis",
+        "is_direct_official_correspondence",
+        "gsim_change_en",
+        "gsim_change_fr",
+        "notes_en",
+        "notes_fr",
+        "source_id_en",
+        "source_id_fr",
+        "source_page_url_en",
+        "source_page_url_fr",
+        "source_download_url_en",
+        "source_download_url_fr",
+        "source_sha256_en",
+        "source_sha256_fr",
+        "source_row_en",
+        "source_row_fr"
+      ]
+    }
+  },
+  "non_claims": [
+    "NOC correspondence rows are class relationships, not record-level recodes.",
+    "No allocation weights are supplied or inferred for one-to-many relationships.",
+    "The composed NOC 2011-to-2021 rows are not a direct Statistics Canada correspondence table."
+  ]
+}

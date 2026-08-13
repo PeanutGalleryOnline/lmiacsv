@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0.0",
+  "projection_version": "1.0.0",
+  "derivation": "Deterministic derivatives of data/full. Employer and NOC rows are exact column projections; positive aggregate products are byte-for-byte copies because they are already compact. No source parsing or normalization occurs in this stage.",
+  "products": {
+    "employers.csv": {
+      "source": "../full/employers.csv",
+      "primary_key": [
+        "record_id"
+      ],
+      "fields": [
+        {
+          "name": "record_id",
+          "type": "string",
+          "nullable": false,
+          "description": "Stable content-and-source-row identifier."
+        },
+        {
+          "name": "period_key",
+          "type": "string",
+          "nullable": false,
+          "description": "Catalogue period key; annual and multi-quarter periods stay unsplit."
+        },
+        {
+          "name": "period_year",
+          "type": "integer",
+          "nullable": false,
+          "description": "Calendar year named by the source release."
+        },
+        {
+          "name": "period_quarter",
+          "type": "string",
+          "nullable": true,
+          "description": "Q1-Q4, Q1-Q2, or blank for an annual/partial-year source."
+        },
+        {
+          "name": "period_precision",
+          "type": "string",
+          "nullable": false,
+          "description": "quarter, multi_quarter, or year_or_partial_year."
+        },
+        {
+          "name": "decision_status",
+          "type": "string",
+          "nullable": false,
+          "description": "Catalogue decision list: positive or negative."
+        },
+        {
+          "name": "comparability_regime",
+          "type": "string",
+          "nullable": false,
+          "description": "Scope regime for permanent-residence-only LMIAs."
+        },
+        {
+          "name": "province_code",
+          "type": "string",
+          "nullable": true,
+          "description": "Canadian postal abbreviation, or INT for outside Canada."
+        },
+        {
+          "name": "program_stream_key",
+          "type": "string",
+          "nullable": true,
+          "description": "Stable language-neutral key joined to translations.csv."
+        },
+        {
+          "name": "employer",
+          "type": "string",
+          "nullable": false,
+          "description": "Unicode- and whitespace-cleaned employer label."
+        },
+        {
+          "name": "employer_key",
+          "type": "string",
+          "nullable": false,
+          "description": "Case- and punctuation-folded employer search key; not entity resolution."
+        },
+        {
+          "name": "postal_code",
+          "type": "string",
+          "nullable": true,
+          "description": "Canadian postal code parsed from the address when present."
+        },
+        {
+          "name": "noc_version",
+          "type": "string",
+          "nullable": true,
+          "description": "NOC version read from source metadata and validated against code width."
+        },
+        {
+          "name": "noc_code",
+          "type": "string",
+          "nullable": true,
+          "description": "Four- or five-digit NOC code parsed from the occupation label."
+        },
+        {
+          "name": "incorporate_status_key",
+          "type": "string",
+          "nullable": true,
+          "description": "Stable language-neutral key joined to translations.csv."
+        },
+        {
+          "name": "lmia_count",
+          "type": "integer",
+          "nullable": true,
+          "description": "LMIA count when the source supplies it; blank before 2021 Q4."
+        },
+        {
+          "name": "position_count",
+          "type": "integer",
+          "nullable": false,
+          "description": "Published position count, including preserved zeroes."
+        },
+        {
+          "name": "quality_flags",
+          "type": "string",
+          "nullable": true,
+          "description": "Pipe-delimited row/source caveats carried into the canonical table."
+        }
+      ]
+    },
+    "noc.csv": {
+      "source": "../full/noc.csv",
+      "primary_key": [
+        "noc_version",
+        "noc_code"
+      ],
+      "fields": [
+        {
+          "name": "noc_version",
+          "type": "string",
+          "nullable": false,
+          "description": "NOC version required to interpret the code."
+        },
+        {
+          "name": "noc_code",
+          "type": "string",
+          "nullable": false,
+          "description": "Four- or five-digit NOC unit-group code."
+        },
+        {
+          "name": "title_en",
+          "type": "string",
+          "nullable": false,
+          "description": "Official English unit-group title."
+        },
+        {
+          "name": "title_fr",
+          "type": "string",
+          "nullable": false,
+          "description": "Official French unit-group title."
+        },
+        {
+          "name": "teer_category",
+          "type": "string",
+          "nullable": true,
+          "description": "TEER category for NOC 2021; blank for older versions."
+        },
+        {
+          "name": "broad_category_code",
+          "type": "string",
+          "nullable": false,
+          "description": "Top-level NOC broad-category code."
+        }
+      ]
+    },
+    "positive-quarterly.csv": {
+      "source": "../full/positive-quarterly.csv",
+      "derivation": "byte_for_byte_copy",
+      "schema": "../meta/aggregates.schema.json"
+    },
+    "positive-annual.csv": {
+      "source": "../full/positive-annual.csv",
+      "derivation": "byte_for_byte_copy",
+      "schema": "../meta/aggregates.schema.json"
+    },
+    "positive-quarterly-national.csv": {
+      "source": "../full/positive-quarterly-national.csv",
+      "derivation": "byte_for_byte_copy",
+      "schema": "../meta/aggregates.schema.json"
+    }
+  }
+}

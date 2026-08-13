@@ -4,7 +4,10 @@ dist/
 .venv/
 .DS_Store
 data/raw/
-data/normalized/
+data/full/*
+!data/full/manifest.json
+data/min/*
+!data/min/manifest.json
 lmiacsv/__pycache__/
 tests/__pycache__/
 .ruff_cache/

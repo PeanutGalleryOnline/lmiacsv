@@ -2,9 +2,10 @@
 
 The builder fails closed on an unknown schema or an unexpected row. Known source
 defects are handled explicitly: the mislinked 2021 Q2 negative CSV is replaced by
-the checksum-pinned official ESDC workbook, while the semantically contradictory
-2022 Q2 positive workbook is quarantined. Every accepted row retains source-file,
-sheet, row, resource, and checksum provenance.
+the checksum-pinned official ESDC workbook, while the incorrect English measure
+headers in 2022 Q2 positive are interpreted using an exact matching official French
+edition. Every accepted row retains source-file, sheet, row, resource, and checksum
+provenance.
 """
 
 from __future__ import annotations
@@ -20,7 +21,7 @@ import tempfile
 import unicodedata
 from collections import Counter
 from contextlib import contextmanager
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any, Iterable, Iterator, TextIO
 
@@ -34,16 +35,20 @@ from lmiacsv.scrape_catalogue import write_json
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[1]
-CATALOGUE_PATH = WORKSPACE_ROOT / "data" / "published" / "catalogue" / "employer-lists.json"
-CENSUS_PATH = WORKSPACE_ROOT / "data" / "published" / "catalogue" / "employer-resource-census.json"
+CATALOGUE_PATH = WORKSPACE_ROOT / "data" / "meta" / "employers.catalogue.json"
+CENSUS_PATH = WORKSPACE_ROOT / "data" / "meta" / "employers.census.json"
 RAW_MANIFEST_PATH = WORKSPACE_ROOT / "data" / "raw" / "employer-lists" / "manifest.json"
-OUTPUT_PATH = WORKSPACE_ROOT / "data" / "normalized" / "canonical" / "lmia-employer-records.csv"
-RECONCILIATION_PATH = WORKSPACE_ROOT / "data" / "published" / "canonical" / "reconciliation.json"
-SCHEMA_PATH = WORKSPACE_ROOT / "data" / "published" / "canonical" / "schema.json"
+OUTPUT_PATH = WORKSPACE_ROOT / "data" / "full" / "employers.csv"
+RECONCILIATION_PATH = WORKSPACE_ROOT / "data" / "meta" / "employers.reconciliation.json"
+SCHEMA_PATH = WORKSPACE_ROOT / "data" / "meta" / "employers.schema.json"
 
-NORMALIZER_VERSION = "0.1.0"
+NORMALIZER_VERSION = "0.3.0"
 MISLINKED_2021_Q2_NEGATIVE = "4f9a23d3-c6a6-4472-94ad-ec9646351539"
-CONFLICTING_2022_Q2_POSITIVE = "dd627095-614a-45df-a7ef-df0a4a46a812"
+RESOLVED_2022_Q2_POSITIVE_EN = "dd627095-614a-45df-a7ef-df0a4a46a812"
+RESOLVED_2022_Q2_POSITIVE_FR = "d93b17b3-4c84-45d0-8d4a-b44a54f733e6"
+RESOLVED_2022_Q2_QUALITY_FLAG = (
+    "english_requested_headers_interpreted_as_approved_from_matching_french_release"
+)
 RECOVERED_2021_Q2_PATH = (
     WORKSPACE_ROOT
     / "evidence"
@@ -65,6 +70,7 @@ POSTAL_RE = re.compile(
     re.I,
 )
 OCCUPATION_RE = re.compile(r"^\s*(\d{4,5})\s*(?:[-–—:]\s*)?(.*)$")
+NOC_VERSION_RE = re.compile(r"\b(?:NOC|CNP)\)?\s*(2011|2016|2021)\b", re.I)
 
 CANONICAL_FIELDS = [
     "record_id",
@@ -80,6 +86,7 @@ CANONICAL_FIELDS = [
     "province_code",
     "program_stream_raw",
     "program_stream",
+    "program_stream_key",
     "employer_raw",
     "employer",
     "employer_key",
@@ -93,6 +100,7 @@ CANONICAL_FIELDS = [
     "occupation_label",
     "incorporate_status_raw",
     "incorporate_status",
+    "incorporate_status_key",
     "lmia_measure",
     "lmia_count",
     "position_measure",
@@ -120,15 +128,37 @@ PROVINCES = {
     "manitoba": ("Manitoba", "MB"),
     "new brunswick": ("New Brunswick", "NB"),
     "newfoundland and labrador": ("Newfoundland and Labrador", "NL"),
+    "terre neuve et labrador": ("Newfoundland and Labrador", "NL"),
     "nova scotia": ("Nova Scotia", "NS"),
+    "nouvelle ecosse": ("Nova Scotia", "NS"),
+    "nouvelle cosse": ("Nova Scotia", "NS"),
     "northwest territories": ("Northwest Territories", "NT"),
+    "territoires du nord ouest": ("Northwest Territories", "NT"),
     "nunavut": ("Nunavut", "NU"),
     "ontario": ("Ontario", "ON"),
     "prince edward island": ("Prince Edward Island", "PE"),
+    "ile du prince edouard": ("Prince Edward Island", "PE"),
+    "le du prince douard": ("Prince Edward Island", "PE"),
     "quebec": ("Quebec", "QC"),
+    "qu bec": ("Quebec", "QC"),
     "saskatchewan": ("Saskatchewan", "SK"),
     "yukon": ("Yukon", "YT"),
+    "colombie britannique": ("British Columbia", "BC"),
+    "nouveau brunswick": ("New Brunswick", "NB"),
     "outside canada": ("Outside Canada", "INT"),
+    "a l exterieur du canada": ("Outside Canada", "INT"),
+    "les employeurs exercant leurs activites au canada avec un siege social a l exterieur du canada": (
+        "Employers carrying on business in Canada with head office outside of Canada",
+        "INT",
+    ),
+    "les employeurs exercant leurs activites au canada avec un siege social a l exterieur du canad": (
+        "Employers carrying on business in Canada with head office outside of Canada",
+        "INT",
+    ),
+    "les employeurs exer ant leurs activit s au canada avec un si ge social l ext rieur du canada": (
+        "Employers carrying on business in Canada with head office outside of Canada",
+        "INT",
+    ),
     "employers carrying on business in canada with head office outside of canada": (
         "Employers carrying on business in Canada with head office outside of Canada",
         "INT",
@@ -144,29 +174,66 @@ STREAMS = {
     "primary agriculture stream": "Primary agriculture",
     "agricultural stream": "Agricultural stream",
     "global talent stream": "Global Talent Stream",
+    "global talent": "Global Talent Stream",
     "in home caregiver": "In-home caregiver",
     "in home caregivers": "In-home caregiver",
     "permanent residence": "Permanent residence",
+    "haut salaire": "High-wage",
+    "bas salaire": "Low-wage",
+    "agriculture primaire": "Primary agriculture",
+    "volet des talents mondiaux": "Global Talent Stream",
+    "talent mondial": "Global Talent Stream",
+    "residence permanente uniquement": "Permanent Resident Only",
+    "resident permanent seulement": "Permanent Resident Only",
+    "r sident permanent seulement": "Permanent Resident Only",
+    "permanent resident only": "Permanent Resident Only",
+    "non specifie": "Unspecified",
+    "non sp cifi": "Unspecified",
+}
+
+PROGRAM_STREAM_KEYS = {
+    "high wage": "high_wage",
+    "low wage": "low_wage",
+    "primary agriculture": "primary_agriculture",
+    "agricultural stream": "agricultural_stream",
+    "global talent stream": "global_talent_stream",
+    "in home caregiver": "in_home_caregiver",
+    "permanent residence": "permanent_residence",
+    "permanent resident only": "permanent_resident_only",
+    "unspecified": "unspecified",
+    "99": "source_code_99",
 }
 
 HEADER_ALIASES = {
     "province territory": "province",
+    "province territoire": "province",
     "stream": "program_stream",
     "program stream": "program_stream",
+    "volet": "program_stream",
+    "volet du programme": "program_stream",
     "employer": "employer",
     "employer name": "employer",
+    "employeur": "employer",
     "address": "address",
+    "adresse": "address",
     "occupation": "occupation",
+    "profession": "occupation",
+    "profession sous cnp 2011": "occupation",
     "occupations under noc 2011": "occupation",
     "occupaitons under noc 2011": "occupation",
     "incorporate status": "incorporate_status",
+    "incorporer le statut": "incorporate_status",
     "approved lmias": "lmia_count",
     "requested lmias": "lmia_count",
+    "eimt approuves": "lmia_count",
+    "eimt demandes": "lmia_count",
     "positions": "position_count",
     "positions approved": "position_count",
     "approved positions": "position_count",
     "positions requested": "position_count",
     "requested positions": "position_count",
+    "postes approuves": "position_count",
+    "postes demandes": "position_count",
 }
 
 
@@ -193,6 +260,7 @@ class SourcePlan:
     schema_signature: str
     disposition: str
     anomaly_flags: tuple[str, ...] = ()
+    interpretation_evidence: dict[str, Any] = field(default_factory=dict)
 
     @property
     def resource_id(self) -> str:
@@ -293,14 +361,53 @@ def normalize_stream(value: str) -> str:
     return STREAMS.get(search_key(cleaned), cleaned)
 
 
+def program_stream_key(value: str) -> str:
+    if not value:
+        return ""
+    key = search_key(value)
+    try:
+        return PROGRAM_STREAM_KEYS[key]
+    except KeyError as error:
+        raise CanonicalBuildError(
+            f"Program stream has no language-neutral key: {value!r}"
+        ) from error
+
+
 def normalize_incorporate_status(value: str) -> str:
     cleaned = clean_text(value)
     key = search_key(cleaned)
-    if key in {"incorporated", "yes"}:
+    if key in {"incorporated", "incorpore", "incorpor", "yes"}:
         return "Incorporated"
     if key in {"unincorporated", "not incorporated", "no"}:
         return "Unincorporated"
+    if key in {"unknown", "inconnu", "inconnue"}:
+        return "Unknown"
+    if key in {"partnership", "partenariat"}:
+        return "Partnership"
+    if key in {
+        "sole proprietorship",
+        "entreprise a proprietaire unique",
+        "entreprise proprietaire unique",
+        "entreprise propri taire unique",
+    }:
+        return "Sole Proprietorship"
+    if key in {"co operative", "cooperative", "coop rative"}:
+        return "Co-operative"
+    if key in {"non profit organization", "organisme sans but lucratif"}:
+        return "Non-Profit Organization"
+    if key in {
+        "registered charity",
+        "organisme de bienfaisance enregistre",
+        "organisme de bienfaisance enregist",
+    }:
+        return "Registered Charity"
+    if key in {"no response provided", "aucune reponse fournie"}:
+        return "No response provided"
     return cleaned
+
+
+def incorporate_status_key(value: str) -> str:
+    return search_key(value).replace(" ", "_") if value else ""
 
 
 def postal_code(address: str) -> str:
@@ -310,7 +417,32 @@ def postal_code(address: str) -> str:
     return f"{match.group(1).upper()} {match.group(2).upper()}"
 
 
-def parse_occupation(value: str, year: int) -> tuple[str, str, str, str]:
+def source_noc_version(plan: SourcePlan, code: str) -> str:
+    title = plan.catalogue.get("title", {})
+    title_text = " ".join(str(value) for value in title.values()) if isinstance(title, dict) else str(title)
+    evidence = " ".join([title_text, *plan.header_values])
+    versions = set(NOC_VERSION_RE.findall(evidence))
+    if len(code) == 5:
+        if versions and versions != {"2021"}:
+            raise CanonicalBuildError(
+                f"{plan.resource_id}: five-digit NOC code conflicts with source metadata "
+                f"{sorted(versions)!r}"
+            )
+        return "2021"
+    if len(versions) != 1:
+        raise CanonicalBuildError(
+            f"{plan.resource_id}: four-digit NOC code has ambiguous source version "
+            f"{sorted(versions)!r}"
+        )
+    version = versions.pop()
+    if version == "2021":
+        raise CanonicalBuildError(
+            f"{plan.resource_id}: four-digit NOC code conflicts with NOC 2021 metadata"
+        )
+    return version
+
+
+def parse_occupation(value: str, plan: SourcePlan) -> tuple[str, str, str, str]:
     cleaned = clean_text(value)
     if not cleaned:
         return "", "", "", ""
@@ -319,12 +451,7 @@ def parse_occupation(value: str, year: int) -> tuple[str, str, str, str]:
         return "", "", cleaned, cleaned
     code = match.group(1)
     title = match.group(2).strip()
-    if len(code) == 5:
-        version = "2021"
-    elif year <= 2018:
-        version = "2011"
-    else:
-        version = "2016"
+    version = source_noc_version(plan, code)
     label = f"{code} — {title}" if title else code
     return version, code, title, label
 
@@ -358,16 +485,16 @@ def header_roles(header_values: Iterable[Any]) -> list[str]:
 
 def header_decision_signal(header_values: Iterable[Any]) -> str | None:
     values = [normalized_header(value) for value in header_values]
-    if any("approved" in value for value in values):
+    if any("approved" in value or "approuve" in value for value in values):
         return "positive"
-    if any("requested" in value for value in values):
+    if any("requested" in value or "demande" in value for value in values):
         return "negative"
     return None
 
 
 def is_header_row(values: Iterable[Any]) -> bool:
     normalized = [normalized_header(value) for value in values]
-    return "employer" in normalized or "employer name" in normalized
+    return any(value in normalized for value in ("employer", "employer name", "employeur"))
 
 
 def source_path(path_value: str) -> Path:
@@ -381,6 +508,19 @@ def index_resources(document: dict[str, Any]) -> dict[str, dict[str, Any]]:
         for resource in document.get("resources", [])
         if resource.get("resource_id") and resource.get("language") == "en"
     }
+
+
+def resource_by_id(document: dict[str, Any], resource_id: str) -> dict[str, Any]:
+    matches = [
+        resource
+        for resource in document.get("resources", [])
+        if resource.get("resource_id") == resource_id
+    ]
+    if len(matches) != 1:
+        raise CanonicalBuildError(
+            f"Expected exactly one resource {resource_id}, found {len(matches)}"
+        )
+    return matches[0]
 
 
 def validate_input_sets(
@@ -411,7 +551,11 @@ def selected_sheet(census: dict[str, Any]) -> dict[str, Any]:
 
 
 def catalogued_source_plan(
-    catalogue: dict[str, Any], census: dict[str, Any], raw: dict[str, Any]
+    catalogue: dict[str, Any],
+    census: dict[str, Any],
+    raw: dict[str, Any],
+    *,
+    allow_decision_mismatch: bool = False,
 ) -> SourcePlan:
     resource_id = catalogue["resource_id"]
     if raw.get("status") != "downloaded":
@@ -428,7 +572,7 @@ def catalogued_source_plan(
     headers = [clean_text(value) for value in sheet["header"]["values"]]
     roles = header_roles(headers)
     signal = header_decision_signal(headers)
-    if signal is not None and signal != catalogue["decision"]:
+    if signal is not None and signal != catalogue["decision"] and not allow_decision_mismatch:
         raise CanonicalBuildError(
             f"{resource_id}: {catalogue['decision']} catalogue resource has {signal} headers"
         )
@@ -444,6 +588,8 @@ def catalogued_source_plan(
         )
     if signal is None:
         anomalies.append("measure_semantics_inferred_from_decision_title")
+    elif signal != catalogue["decision"]:
+        anomalies.append("decision_header_mismatch_preserved_for_bilingual_audit")
     return SourcePlan(
         catalogue=catalogue,
         census=census,
@@ -513,6 +659,103 @@ def recovered_2021_q2_plan(
     )
 
 
+def normalized_record_signature(
+    plan: SourcePlan,
+) -> tuple[Counter[tuple[Any, ...]], dict[str, int]]:
+    signature: Counter[tuple[Any, ...]] = Counter()
+    totals = {"records": 0, "lmias": 0, "positions": 0}
+    with source_rows(plan) as rows:
+        for record in canonical_records(plan, rows):
+            identity = (
+                record["province_code"],
+                record["program_stream_key"],
+                record["postal_code"],
+                record["noc_version"],
+                record["noc_code"],
+                record["lmia_count"],
+                record["position_count"],
+                record["incorporate_status_key"],
+                record["employer_key"],
+            )
+            signature[identity] += 1
+            totals["records"] += 1
+            totals["lmias"] += int(record["lmia_count"] or 0)
+            totals["positions"] += int(record["position_count"])
+    return signature, totals
+
+
+def resolved_2022_q2_positive_plan(
+    catalogue_document: dict[str, Any],
+    census_document: dict[str, Any],
+    raw_document: dict[str, Any],
+) -> SourcePlan:
+    en_catalogue = resource_by_id(catalogue_document, RESOLVED_2022_Q2_POSITIVE_EN)
+    fr_catalogue = resource_by_id(catalogue_document, RESOLVED_2022_Q2_POSITIVE_FR)
+    en_census = resource_by_id(census_document, RESOLVED_2022_Q2_POSITIVE_EN)
+    fr_census = resource_by_id(census_document, RESOLVED_2022_Q2_POSITIVE_FR)
+    en_raw = resource_by_id(raw_document, RESOLVED_2022_Q2_POSITIVE_EN)
+    fr_raw = resource_by_id(raw_document, RESOLVED_2022_Q2_POSITIVE_FR)
+
+    expected_identity = ("2022-q2", "positive")
+    for language, resource in (("en", en_catalogue), ("fr", fr_catalogue)):
+        identity = (resource["period"]["key"], resource["decision"])
+        if resource.get("language") != language or identity != expected_identity:
+            raise CanonicalBuildError(
+                f"{resource['resource_id']}: unexpected bilingual override identity "
+                f"{resource.get('language')!r}, {identity!r}"
+            )
+
+    en_plan = catalogued_source_plan(
+        en_catalogue,
+        en_census,
+        en_raw,
+        allow_decision_mismatch=True,
+    )
+    fr_plan = catalogued_source_plan(fr_catalogue, fr_census, fr_raw)
+    en_signal = header_decision_signal(en_plan.header_values)
+    fr_signal = header_decision_signal(fr_plan.header_values)
+    if en_signal != "negative" or fr_signal != "positive":
+        raise CanonicalBuildError(
+            "2022 Q2 positive bilingual override no longer has requested English "
+            f"headers and approved French headers: en={en_signal!r}, fr={fr_signal!r}"
+        )
+
+    en_signature, en_totals = normalized_record_signature(en_plan)
+    fr_signature, fr_totals = normalized_record_signature(fr_plan)
+    if en_signature != fr_signature or en_totals != fr_totals:
+        raise CanonicalBuildError(
+            "2022 Q2 positive English/French records no longer match exactly; "
+            "refusing the measure-header override"
+        )
+
+    anomaly_flags = tuple(
+        flag
+        for flag in en_plan.anomaly_flags
+        if flag != "decision_header_mismatch_preserved_for_bilingual_audit"
+    ) + (RESOLVED_2022_Q2_QUALITY_FLAG,)
+    return replace(
+        en_plan,
+        disposition="normalized_with_bilingual_measure_override",
+        anomaly_flags=anomaly_flags,
+        interpretation_evidence={
+            "reason": (
+                "The English positive workbook labels its measures Requested LMIAs and "
+                "Requested Positions. Its paired official French positive workbook labels "
+                "the same measures approved and matches every language-neutral normalized "
+                "record and measure."
+            ),
+            "english_header_signal": en_signal,
+            "french_header_signal": fr_signal,
+            "paired_french_resource_id": fr_plan.resource_id,
+            "paired_french_source_file": fr_plan.file_name,
+            "paired_french_sha256": fr_plan.sha256,
+            "normalized_record_multiset_match": True,
+            "totals_match": True,
+            "verified_totals": en_totals,
+        },
+    )
+
+
 def build_source_plans(
     catalogue_document: dict[str, Any],
     census_document: dict[str, Any],
@@ -535,32 +778,13 @@ def build_source_plans(
     )
     for resource in ordered:
         resource_id = resource["resource_id"]
-        if resource_id == CONFLICTING_2022_Q2_POSITIVE:
-            sheet = selected_sheet(census[resource_id])
-            quarantines.append(
-                {
-                    "dataset_id": resource["dataset_id"],
-                    "resource_id": resource_id,
-                    "period": resource["period"],
-                    "decision": resource["decision"],
-                    "language": resource["language"],
-                    "disposition": "quarantined",
-                    "reason": "positive_resource_uses_requested_lmia_and_position_headers",
-                    "resource_page_url": resource["resource_page_url"],
-                    "download_url": resource["download_url"],
-                    "catalogue_sha256": raw[resource_id]["sha256"],
-                    "catalogue_format": raw[resource_id].get("catalogue_format"),
-                    "detected_format": raw[resource_id].get("format"),
-                    "source_file": raw[resource_id]["source_filename"],
-                    "source_sheet": sheet["name"],
-                    "header_row": sheet["header"]["row"],
-                    "header_values": sheet["header"]["values"],
-                    "census_estimated_rows": sheet.get("estimated_data_rows"),
-                    "canonical_records": 0,
-                }
+        if resource_id == RESOLVED_2022_Q2_POSITIVE_EN:
+            plan = resolved_2022_q2_positive_plan(
+                catalogue_document,
+                census_document,
+                raw_document,
             )
-            continue
-        if resource_id == MISLINKED_2021_Q2_NEGATIVE:
+        elif resource_id == MISLINKED_2021_Q2_NEGATIVE:
             plan = recovered_2021_q2_plan(resource, census[resource_id], raw[resource_id])
         else:
             plan = catalogued_source_plan(resource, census[resource_id], raw[resource_id])
@@ -699,7 +923,7 @@ def canonical_records(
         incorporate = normalize_incorporate_status(incorporate_raw)
         province, province_code = normalize_province(current_province)
         noc_version, noc_code, occupation_title, occupation_label = parse_occupation(
-            occupation, int(period["year"])
+            occupation, plan
         )
         lmia_value = mapped.get("lmia_count")
         lmia_count: int | str = ""
@@ -737,6 +961,7 @@ def canonical_records(
             "province_code": province_code,
             "program_stream_raw": stream_raw,
             "program_stream": current_stream,
+            "program_stream_key": program_stream_key(current_stream),
             "employer_raw": employer_raw,
             "employer": employer,
             "employer_key": search_key(employer),
@@ -750,6 +975,7 @@ def canonical_records(
             "occupation_label": occupation_label,
             "incorporate_status_raw": incorporate_raw,
             "incorporate_status": incorporate,
+            "incorporate_status_key": incorporate_status_key(incorporate),
             "lmia_measure": (
                 (
                     "approved_lmias"
@@ -830,6 +1056,8 @@ def resource_ledger_entry(plan: SourcePlan, stats: ResourceStats) -> dict[str, A
             "source_file": plan.raw["source_filename"],
             "reason": "byte-identical_to_catalogued_2020_q2_negative_resource",
         }
+    if plan.interpretation_evidence:
+        entry["interpretation_evidence"] = plan.interpretation_evidence
     return entry
 
 
@@ -848,6 +1076,7 @@ def build_schema_document() -> dict[str, Any]:
         "province_code": "Canadian postal abbreviation, or INT for outside Canada.",
         "program_stream_raw": "Literal stream cell; blank where the source uses grouping.",
         "program_stream": "Cleaned and forward-filled program stream when supplied.",
+        "program_stream_key": "Stable language-neutral key joined to translations.csv.",
         "employer_raw": "Literal employer cell.",
         "employer": "Unicode- and whitespace-cleaned employer label.",
         "employer_key": "Case- and punctuation-folded employer search key; not entity resolution.",
@@ -855,12 +1084,13 @@ def build_schema_document() -> dict[str, Any]:
         "address": "Unicode- and whitespace-cleaned address, forward-filled when grouped.",
         "postal_code": "Canadian postal code parsed from the address when present.",
         "occupation_raw": "Literal occupation cell.",
-        "noc_version": "NOC version inferred from code width and source year.",
+        "noc_version": "NOC version read from source metadata and validated against code width.",
         "noc_code": "Four- or five-digit NOC code parsed from the occupation label.",
         "occupation_title": "Occupation title with the parsed NOC prefix removed.",
         "occupation_label": "Canonical NOC code and occupation title display label.",
         "incorporate_status_raw": "Literal incorporate-status cell when supplied.",
         "incorporate_status": "Cleaned incorporate status when supplied.",
+        "incorporate_status_key": "Stable language-neutral key joined to translations.csv.",
         "lmia_measure": "Semantic label for lmia_count; blank when the source has no LMIA count.",
         "lmia_count": "LMIA count when the source supplies it; blank before 2021 Q4.",
         "position_measure": "Semantic label for position_count.",
@@ -877,7 +1107,10 @@ def build_schema_document() -> dict[str, Any]:
         "source_row": "One-based row number in the selected source sheet or CSV.",
         "source_sha256": "SHA-256 checksum of the exact selected source file.",
         "source_schema_signature": "Stable signature of the normalized source headers.",
-        "source_disposition": "normalized or recovered_official_alternate.",
+        "source_disposition": (
+            "normalized, recovered_official_alternate, or "
+            "normalized_with_bilingual_measure_override."
+        ),
         "quality_flags": "Pipe-delimited row/source caveats carried into the canonical table.",
         "normalizer_version": "Version of this canonical normalization contract.",
     }
@@ -889,6 +1122,7 @@ def build_schema_document() -> dict[str, Any]:
         "province_code",
         "program_stream_raw",
         "program_stream",
+        "program_stream_key",
         "address_raw",
         "address",
         "postal_code",
@@ -899,12 +1133,13 @@ def build_schema_document() -> dict[str, Any]:
         "occupation_label",
         "incorporate_status_raw",
         "incorporate_status",
+        "incorporate_status_key",
         "lmia_measure",
         "lmia_count",
         "quality_flags",
     }
     return {
-        "schema_version": "0.1.0",
+        "schema_version": "0.3.0",
         "normalizer_version": NORMALIZER_VERSION,
         "format": "CSV UTF-8 with header",
         "primary_key": ["record_id"],
@@ -926,6 +1161,21 @@ def build_schema_document() -> dict[str, Any]:
             "requested_positions_on_negative_decisions": (
                 "Requested positions attached to negative-decision list rows."
             ),
+        },
+        "interpretation_rules": {
+            "2022_q2_positive_english_measure_headers": {
+                "source_resource_id": RESOLVED_2022_Q2_POSITIVE_EN,
+                "paired_french_resource_id": RESOLVED_2022_Q2_POSITIVE_FR,
+                "source_header_labels": ["Requested LMIAs", "Requested Positions"],
+                "canonical_measure_labels": ["approved_lmias", "approved_positions"],
+                "basis": (
+                    "The paired official French positive workbook labels the measures "
+                    "approved and must match the English workbook at language-neutral "
+                    "normalized-record and measure-total levels. The build fails closed "
+                    "if that evidence changes."
+                ),
+                "row_quality_flag": RESOLVED_2022_Q2_QUALITY_FLAG,
+            }
         },
         "important_limit": (
             "Employer-list rows are not application-level observations. The table must not be used "
@@ -1027,7 +1277,7 @@ def build(
         )
     )
     reconciliation = {
-        "schema_version": "0.1.0",
+        "schema_version": "0.3.0",
         "normalizer_version": NORMALIZER_VERSION,
         "inputs": {
             "catalogue": display_path(catalogue_path),
@@ -1046,6 +1296,10 @@ def build(
             "recovered_resources": sum(
                 plan.disposition == "recovered_official_alternate" for plan in plans
             ),
+            "bilingual_measure_override_resources": sum(
+                plan.disposition == "normalized_with_bilingual_measure_override"
+                for plan in plans
+            ),
             "quarantined_resources": len(quarantines),
             "canonical_records": total_records,
             "by_decision": totals_by_decision,
@@ -1055,7 +1309,9 @@ def build(
             "Every selected source checksum was verified before parsing.",
             "Every accepted schema and decision-measure relationship was validated.",
             "Every canonical record ID is unique.",
-            "Known quarantines produce no canonical records.",
+            "Any quarantined resource produces no canonical records.",
+            "The 2022 Q2 English positive measure override is accepted only while its "
+            "paired official French release matches at normalized-record level.",
         ],
         "census_row_note": (
             "The census estimate counts nonempty rows after the first detected header. "

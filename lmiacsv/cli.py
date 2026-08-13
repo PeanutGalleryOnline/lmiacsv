@@ -17,6 +17,38 @@ COMMANDS = {
         "lmiacsv.scrape_catalogue",
         "audit the separate official quarterly statistics catalogue",
     ),
+    "aggregate-catalogue": (
+        "lmiacsv.scrape_aggregate_catalogues",
+        "catalogue the official quarterly and annual aggregate Table 14 resources",
+    ),
+    "aggregate-fetch": (
+        "lmiacsv.fetch_aggregate_resources",
+        "discover and archive current and retained historical Table 14 releases",
+    ),
+    "aggregate-build": (
+        "lmiacsv.build_aggregate_tables",
+        "normalize positive-LMIA quarterly and annual aggregate tables",
+    ),
+    "bilingual-verify": (
+        "lmiacsv.verify_bilingual_data",
+        "reconcile paired English/French employer and aggregate source data",
+    ),
+    "translations-build": (
+        "lmiacsv.build_translations",
+        "build the shared translation registry from bilingual evidence",
+    ),
+    "noc-catalogue": (
+        "lmiacsv.scrape_noc_catalogue",
+        "catalogue official Statistics Canada NOC reference CSVs",
+    ),
+    "noc-fetch": (
+        "lmiacsv.fetch_noc_resources",
+        "archive official NOC structures and correspondence by checksum",
+    ),
+    "noc-build": (
+        "lmiacsv.build_noc_tables",
+        "normalize versioned NOC unit groups and crosswalks",
+    ),
     "fetch": (
         "lmiacsv.fetch_employer_resources",
         "download employer-list resources into immutable checksum paths",
@@ -27,7 +59,11 @@ COMMANDS = {
     ),
     "build": (
         "lmiacsv.build_canonical_records",
-        "build the canonical CSV, schema, and reconciliation ledger",
+        "build the full employer CSV, schema, and reconciliation ledger",
+    ),
+    "min-build": (
+        "lmiacsv.build_min_products",
+        "build deterministic compact projections and full/min manifests",
     ),
     "receipts": (
         "lmiacsv.collect_2021q2_receipts",

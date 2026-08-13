@@ -21,7 +21,7 @@ from lmiacsv.scrape_catalogue import CatalogueError, USER_AGENT, atomic_write, w
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[1]
-CATALOGUE_PATH = WORKSPACE_ROOT / "data" / "published" / "catalogue" / "employer-lists.json"
+CATALOGUE_PATH = WORKSPACE_ROOT / "data" / "meta" / "employers.catalogue.json"
 RAW_ROOT = WORKSPACE_ROOT / "data" / "raw" / "employer-lists"
 MANIFEST_PATH = RAW_ROOT / "manifest.json"
 MAX_RESOURCE_BYTES = 50 * 1024 * 1024
@@ -200,7 +200,7 @@ def main() -> None:
     parser.add_argument("--catalogue", type=Path, default=CATALOGUE_PATH)
     parser.add_argument("--raw-root", type=Path, default=RAW_ROOT)
     parser.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
-    parser.add_argument("--language", choices=("en", "fr", "all"), default="en")
+    parser.add_argument("--language", choices=("en", "fr", "all"), default="all")
     parser.add_argument("--decision", choices=("positive", "negative", "all"), default="all")
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--refresh", action="store_true")

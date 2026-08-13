@@ -1,28 +1,29 @@
 {
-  "schema_version": "0.1.0",
-  "normalizer_version": "0.1.0",
+  "schema_version": "0.3.0",
+  "normalizer_version": "0.3.0",
   "inputs": {
-    "catalogue": "data/published/catalogue/employer-lists.json",
-    "census": "data/published/catalogue/employer-resource-census.json",
+    "catalogue": "data/meta/employers.catalogue.json",
+    "census": "data/meta/employers.census.json",
     "raw_manifest": "data/raw/employer-lists/manifest.json"
   },
   "output": {
-    "path": "data/normalized/canonical/lmia-employer-records.csv",
-    "sha256": "90b69e5c0ab452822a71f9d4dff1b33ba161b88ee0cab899f324c776242d4975",
-    "bytes": 513741717,
-    "records": 468379
+    "path": "data/full/employers.csv",
+    "sha256": "e6d03611267a0febfd38615427a92163d2e652e1603a51d609658c0152088f7c",
+    "bytes": 540018629,
+    "records": 483546
   },
   "totals": {
     "catalogued_resources": 78,
-    "canonical_resources": 77,
+    "canonical_resources": 78,
     "recovered_resources": 1,
-    "quarantined_resources": 1,
-    "canonical_records": 468379,
+    "bilingual_measure_override_resources": 1,
+    "quarantined_resources": 0,
+    "canonical_records": 483546,
     "by_decision": {
       "positive": {
-        "records": 426043,
-        "positions": 1537029,
-        "lmias": 331647
+        "records": 441210,
+        "positions": 1582227,
+        "lmias": 350861
       },
       "negative": {
         "records": 42336,
@@ -36,7 +37,8 @@
     "Every selected source checksum was verified before parsing.",
     "Every accepted schema and decision-measure relationship was validated.",
     "Every canonical record ID is unique.",
-    "Known quarantines produce no canonical records."
+    "Any quarantined resource produces no canonical records.",
+    "The 2022 Q2 English positive measure override is accepted only while its paired official French release matches at normalized-record level."
   ],
   "census_row_note": "The census estimate counts nonempty rows after the first detected header. In early province-grouped CSVs that includes repeated headers and province headings; for recovered 2021 Q2 it describes the quarantined catalogue blob, not the replacement.",
   "resources": [
@@ -2314,11 +2316,12 @@
       },
       "decision": "positive",
       "language": "en",
-      "disposition": "quarantined",
-      "reason": "positive_resource_uses_requested_lmia_and_position_headers",
+      "disposition": "normalized_with_bilingual_measure_override",
       "resource_page_url": "https://open.canada.ca/data/en/dataset/90fed587-1364-4f33-a9ee-208181dc0b97/resource/dd627095-614a-45df-a7ef-df0a4a46a812",
-      "download_url": "https://open.canada.ca/data/dataset/90fed587-1364-4f33-a9ee-208181dc0b97/resource/dd627095-614a-45df-a7ef-df0a4a46a812/download/tfwp_2022q2_positive_en.xlsx",
+      "catalogue_download_url": "https://open.canada.ca/data/dataset/90fed587-1364-4f33-a9ee-208181dc0b97/resource/dd627095-614a-45df-a7ef-df0a4a46a812/download/tfwp_2022q2_positive_en.xlsx",
+      "selected_download_url": "https://open.canada.ca/data/dataset/90fed587-1364-4f33-a9ee-208181dc0b97/resource/dd627095-614a-45df-a7ef-df0a4a46a812/download/tfwp_2022q2_positive_en.xlsx",
       "catalogue_sha256": "b1bcb07f56569623a6619f483a1c5dccbc05a562ebdddb8286e02000c71051cf",
+      "selected_sha256": "b1bcb07f56569623a6619f483a1c5dccbc05a562ebdddb8286e02000c71051cf",
       "catalogue_format": "XLSX",
       "detected_format": "XLSX",
       "source_file": "tfwp_2022q2_positive_en.xlsx",
@@ -2334,8 +2337,42 @@
         "Requested LMIAs",
         "Requested Positions"
       ],
+      "schema_signature": "d491748c17291c35",
       "census_estimated_rows": 15167,
-      "canonical_records": 0
+      "canonical_minus_census_estimate": 0,
+      "canonical_records": 15167,
+      "position_count": 45198,
+      "records_with_lmia_count": 15167,
+      "lmia_count": 19214,
+      "quality_counts": {
+        "zero_position_records": 11,
+        "blank_province_records": 0,
+        "blank_program_stream_records": 0,
+        "blank_occupation_records": 0,
+        "flags": {
+          "english_requested_headers_interpreted_as_approved_from_matching_french_release": 15167,
+          "unparsed_occupation_code": 1,
+          "zero_positions_preserved": 11
+        }
+      },
+      "anomaly_flags": [
+        "english_requested_headers_interpreted_as_approved_from_matching_french_release"
+      ],
+      "interpretation_evidence": {
+        "reason": "The English positive workbook labels its measures Requested LMIAs and Requested Positions. Its paired official French positive workbook labels the same measures approved and matches every language-neutral normalized record and measure.",
+        "english_header_signal": "negative",
+        "french_header_signal": "positive",
+        "paired_french_resource_id": "d93b17b3-4c84-45d0-8d4a-b44a54f733e6",
+        "paired_french_source_file": "tfwp_2022q2_positive_fr.xlsx",
+        "paired_french_sha256": "0d688946030febde40b89682b86a3bdb721d0c18109026f521172eb406139d0d",
+        "normalized_record_multiset_match": true,
+        "totals_match": true,
+        "verified_totals": {
+          "records": 15167,
+          "lmias": 19214,
+          "positions": 45198
+        }
+      }
     },
     {
       "dataset_id": "f82f66f2-a22b-4511-bccf-e1d74db39ae5",

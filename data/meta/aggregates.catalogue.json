@@ -1,0 +1,117 @@
+{
+  "schema_version": "0.2.0",
+  "datasets": [
+    {
+      "dataset_id": "e8745429-21e7-4a73-b3f5-90a779b78d1e",
+      "page_url": "https://open.canada.ca/data/en/dataset/e8745429-21e7-4a73-b3f5-90a779b78d1e",
+      "machine_readable_url": "https://open.canada.ca/data/en/dataset/e8745429-21e7-4a73-b3f5-90a779b78d1e.jsonld",
+      "title": {
+        "en": "Temporary Foreign Worker Program Labour Market Impact Assessment Statistics 2025Q1-2026Q1",
+        "fr": "Statistiques du Programme des travailleurs étrangers temporaires sur l'évaluation de l'impact sur le marché du travail 2025T1-2026T1"
+      },
+      "issued_at": "2016-09-26T15:50:19.600984",
+      "modified_at": "2026-07-22T13:32:07.362022",
+      "source_snapshot": {
+        "sha256": "31194e0f8fd9d615e67d45111f0d60cf6189d888895fe10b5b87f42e2aab3995",
+        "bytes": 102431
+      },
+      "table_14": {
+        "en": {
+          "dataset_id": "e8745429-21e7-4a73-b3f5-90a779b78d1e",
+          "dataset_page_url": "https://open.canada.ca/data/en/dataset/e8745429-21e7-4a73-b3f5-90a779b78d1e",
+          "resource_id": "d78b1e10-7625-4bf4-95a9-e1a9d7aa7996",
+          "resource_page_url": "https://open.canada.ca/data/en/dataset/e8745429-21e7-4a73-b3f5-90a779b78d1e/resource/d78b1e10-7625-4bf4-95a9-e1a9d7aa7996",
+          "download_url": "https://open.canada.ca/data/dataset/e8745429-21e7-4a73-b3f5-90a779b78d1e/resource/d78b1e10-7625-4bf4-95a9-e1a9d7aa7996/download/tfwp2026_q1_table_14_e.xlsx",
+          "source_filename": "tfwp2026_q1_table_14_e.xlsx",
+          "format": "XLSX",
+          "bytes": 29370,
+          "issued_at": "2019-06-21T18:20:51.946886",
+          "modified_at": "2026-07-22T13:32:07.354085",
+          "title": "Table 14-Number of Positive Labour Market Impact Assessments (LMIA) by Program Stream and Province / Territory between 2025Q1 and 2026Q1",
+          "language": "en",
+          "table_number": 14,
+          "unit": "lmias",
+          "decision_scope": "positive",
+          "population_scope": "general"
+        },
+        "fr": {
+          "dataset_id": "e8745429-21e7-4a73-b3f5-90a779b78d1e",
+          "dataset_page_url": "https://open.canada.ca/data/en/dataset/e8745429-21e7-4a73-b3f5-90a779b78d1e",
+          "resource_id": "7441c344-bd42-4752-83f7-2f90b3d32a48",
+          "resource_page_url": "https://open.canada.ca/data/en/dataset/e8745429-21e7-4a73-b3f5-90a779b78d1e/resource/7441c344-bd42-4752-83f7-2f90b3d32a48",
+          "download_url": "https://open.canada.ca/data/dataset/e8745429-21e7-4a73-b3f5-90a779b78d1e/resource/7441c344-bd42-4752-83f7-2f90b3d32a48/download/tfwp2026_q1_table_14_f.xlsx",
+          "source_filename": "tfwp2026_q1_table_14_f.xlsx",
+          "format": "XLSX",
+          "bytes": 30325,
+          "issued_at": "2019-06-21T20:10:49.558257",
+          "modified_at": "2026-07-22T13:32:07.354138",
+          "title": "Tableau14-Nombre d'évaluation d’impact sur le marché du travail (EIMT) positives par volet du programme et province/territoire entre 2025T1 et 2026T1",
+          "language": "fr",
+          "table_number": 14,
+          "unit": "lmias",
+          "decision_scope": "positive",
+          "population_scope": "general"
+        }
+      }
+    },
+    {
+      "dataset_id": "76defa14-473e-41e2-abfa-60021c4d934b",
+      "page_url": "https://open.canada.ca/data/en/dataset/76defa14-473e-41e2-abfa-60021c4d934b",
+      "machine_readable_url": "https://open.canada.ca/data/en/dataset/76defa14-473e-41e2-abfa-60021c4d934b.jsonld",
+      "title": {
+        "en": "Temporary Foreign Worker Program Labour Market Impact Assessment Statistics 2018-2025",
+        "fr": "Statistiques du Programme des travailleurs étrangers temporaires sur l'évaluation de l'impact sur le marché du travail 2018-2025"
+      },
+      "issued_at": "2016-09-24T19:28:39.222286",
+      "modified_at": "2026-03-16T15:01:16.195788",
+      "source_snapshot": {
+        "sha256": "a280d6893114c9a629e0a14eda1c6e346a90cd7596ce737a610fe0b457b96068",
+        "bytes": 102728
+      },
+      "table_14": {
+        "en": {
+          "dataset_id": "76defa14-473e-41e2-abfa-60021c4d934b",
+          "dataset_page_url": "https://open.canada.ca/data/en/dataset/76defa14-473e-41e2-abfa-60021c4d934b",
+          "resource_id": "4b168d19-8abb-474c-b7ac-5dde1073df03",
+          "resource_page_url": "https://open.canada.ca/data/en/dataset/76defa14-473e-41e2-abfa-60021c4d934b/resource/4b168d19-8abb-474c-b7ac-5dde1073df03",
+          "download_url": "https://open.canada.ca/data/dataset/76defa14-473e-41e2-abfa-60021c4d934b/resource/4b168d19-8abb-474c-b7ac-5dde1073df03/download/tfwp2025_annual_table_14_e.xlsx",
+          "source_filename": "tfwp2025_annual_table_14_e.xlsx",
+          "format": "XLSX",
+          "bytes": 30137,
+          "issued_at": "2020-03-09T13:50:34.048184",
+          "modified_at": "2026-03-16T15:01:16.187909",
+          "title": "Table 14: Number of positive Labour Market Impact Assessments (LMIA) by stream and province / territory between 2018 and 2025",
+          "language": "en",
+          "table_number": 14,
+          "unit": "lmias",
+          "decision_scope": "positive",
+          "population_scope": "general"
+        },
+        "fr": {
+          "dataset_id": "76defa14-473e-41e2-abfa-60021c4d934b",
+          "dataset_page_url": "https://open.canada.ca/data/en/dataset/76defa14-473e-41e2-abfa-60021c4d934b",
+          "resource_id": "01c0aff8-39f2-4875-8e4d-c3e1c444e145",
+          "resource_page_url": "https://open.canada.ca/data/en/dataset/76defa14-473e-41e2-abfa-60021c4d934b/resource/01c0aff8-39f2-4875-8e4d-c3e1c444e145",
+          "download_url": "https://open.canada.ca/data/dataset/76defa14-473e-41e2-abfa-60021c4d934b/resource/01c0aff8-39f2-4875-8e4d-c3e1c444e145/download/tfwp2025_annual_table_14_f.xlsx",
+          "source_filename": "tfwp2025_annual_table_14_f.xlsx",
+          "format": "XLSX",
+          "bytes": 30945,
+          "issued_at": "2020-03-09T13:50:34.048187",
+          "modified_at": "2026-03-16T15:01:16.187963",
+          "title": "Tableau 14:  Nombre d'évaluation d’impact sur le marché du travail (EIMT) positives par volet de programme et province/territoire entre 2018 et 2025",
+          "language": "fr",
+          "table_number": 14,
+          "unit": "lmias",
+          "decision_scope": "positive",
+          "population_scope": "general"
+        }
+      }
+    }
+  ],
+  "checks": [
+    "Each JSON-LD source identifies the expected official dataset UUID.",
+    "Exactly one English and one French Table 14 are selected from each dataset.",
+    "All four selected tables explicitly count positive LMIAs/EIMT, not positions or employers.",
+    "Download URLs are HTTPS resources hosted by open.canada.ca."
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "manifest_version": "1.0.0",
+  "projection_version": "1.0.0",
+  "tier": "min",
+  "description": "Compact deterministic projections plus already-small aggregate products for ordinary data-product use.",
+  "derived_from": {
+    "path": "../full/manifest.json",
+    "sha256": "596c1b8fe6b53c6e7aa43115894a4ee055b57deca0eb44d6c40f05427b877f59"
+  },
+  "invariants": [
+    "Every source row is retained exactly once and in source order.",
+    "Every retained value is copied without transformation.",
+    "Projected primary keys are nonblank and unique.",
+    "CSV headers exactly match the versioned full and min contracts."
+  ],
+  "products": [
+    {
+      "path": "employers.csv",
+      "sha256": "8cfdb4da7f0382710382f6e8b2da6d7f68b67f408dcd956823e55edf69abf863",
+      "bytes": 90464113,
+      "rows": 483546,
+      "columns": 18,
+      "fields": [
+        "record_id",
+        "period_key",
+        "period_year",
+        "period_quarter",
+        "period_precision",
+        "decision_status",
+        "comparability_regime",
+        "province_code",
+        "program_stream_key",
+        "employer",
+        "employer_key",
+        "postal_code",
+        "noc_version",
+        "noc_code",
+        "incorporate_status_key",
+        "lmia_count",
+        "position_count",
+        "quality_flags"
+      ],
+      "source": "../full/employers.csv",
+      "source_sha256": "e6d03611267a0febfd38615427a92163d2e652e1603a51d609658c0152088f7c",
+      "primary_key": [
+        "record_id"
+      ]
+    },
+    {
+      "path": "positive-quarterly.csv",
+      "sha256": "03b79f90f7234b7a50722a2899df922ccf0e1986a30861d23ef06af13de74bfa",
+      "bytes": 323790,
+      "rows": 1313,
+      "columns": 16,
+      "fields": [
+        "period",
+        "year",
+        "quarter",
+        "province_territory",
+        "province_territory_raw",
+        "program_stream",
+        "program_stream_raw",
+        "positive_lmias",
+        "source_dataset_id",
+        "source_resource_id",
+        "source_language",
+        "source_release_period",
+        "source_filename",
+        "source_sha256",
+        "source_sheet",
+        "source_row"
+      ],
+      "primary_key": [
+        "period",
+        "province_territory",
+        "program_stream"
+      ],
+      "source": "../full/positive-quarterly.csv",
+      "source_sha256": "03b79f90f7234b7a50722a2899df922ccf0e1986a30861d23ef06af13de74bfa",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "path": "positive-annual.csv",
+      "sha256": "e37cf09403b1035d25e2aa196a4b4184f50e8d58089cb6ca73baaae52cfe7e6e",
+      "bytes": 143766,
+      "rows": 624,
+      "columns": 13,
+      "fields": [
+        "year",
+        "province_territory",
+        "province_territory_raw",
+        "program_stream",
+        "program_stream_raw",
+        "positive_lmias",
+        "source_dataset_id",
+        "source_resource_id",
+        "source_language",
+        "source_filename",
+        "source_sha256",
+        "source_sheet",
+        "source_row"
+      ],
+      "primary_key": [
+        "year",
+        "province_territory",
+        "program_stream"
+      ],
+      "source": "../full/positive-annual.csv",
+      "source_sha256": "e37cf09403b1035d25e2aa196a4b4184f50e8d58089cb6ca73baaae52cfe7e6e",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "path": "positive-quarterly-national.csv",
+      "sha256": "e61fe486de5a2f3d50aab0f1538204f2b654b837ed35c60e099c1378c2a9b6cd",
+      "bytes": 1976,
+      "rows": 21,
+      "columns": 7,
+      "fields": [
+        "period",
+        "year",
+        "quarter",
+        "positive_lmias",
+        "contributing_rows",
+        "source_release_periods",
+        "quality_flags"
+      ],
+      "primary_key": [
+        "period"
+      ],
+      "source": "../full/positive-quarterly-national.csv",
+      "source_sha256": "e61fe486de5a2f3d50aab0f1538204f2b654b837ed35c60e099c1378c2a9b6cd",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "path": "noc.csv",
+      "sha256": "d370d97bf663661c1f5aa834fe921530b52c0cdf9a50c295e99d2aa6f61387a5",
+      "bytes": 187985,
+      "rows": 1516,
+      "columns": 6,
+      "fields": [
+        "noc_version",
+        "noc_code",
+        "title_en",
+        "title_fr",
+        "teer_category",
+        "broad_category_code"
+      ],
+      "source": "../full/noc.csv",
+      "source_sha256": "6dccc53307cf9ab56561837b3489cf03b0c8e55eff2d356bfc6856aeadd8a091",
+      "primary_key": [
+        "noc_version",
+        "noc_code"
+      ]
+    }
+  ],
+  "schema": {
+    "path": "../meta/min.schema.json",
+    "sha256": "20051db1830b618cd47b0d7391a49f8298e3f651f0b3374906acf8c2be25e438"
+  }
+}

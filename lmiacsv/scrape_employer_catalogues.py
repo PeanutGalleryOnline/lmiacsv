@@ -33,7 +33,7 @@ from lmiacsv.scrape_catalogue import (
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[1]
 RAW_ROOT = WORKSPACE_ROOT / "data" / "raw" / "catalogue"
-DEFAULT_OUTPUT_PATH = WORKSPACE_ROOT / "data" / "published" / "catalogue" / "employer-lists.json"
+DEFAULT_OUTPUT_PATH = WORKSPACE_ROOT / "data" / "meta" / "employers.catalogue.json"
 ALLOWED_DOWNLOAD_HOSTS = {"open.canada.ca", "www.esdc.gc.ca"}
 PERIOD_RE = re.compile(r"^\s*(20\d{2})(?:Q([1-4])(?:Q([1-4]))?)?\b", re.I)
 

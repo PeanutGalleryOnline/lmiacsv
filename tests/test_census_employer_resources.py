@@ -56,6 +56,19 @@ class EmployerResourceCensusTests(unittest.TestCase):
         self.assertEqual(decision_signal(positive), "positive")
         self.assertEqual(decision_signal(negative), "negative")
 
+    def test_french_headers_are_first_class_census_candidates(self) -> None:
+        positive = header_candidate(
+            [["Province/Territoire", "Volet du programme", "Employeur", "Postes approuvés"]]
+        )
+        negative = header_candidate(
+            [["Province/Territoire", "Volet", "Employeur", "Postes demandés"]]
+        )
+
+        self.assertIsNotNone(positive)
+        self.assertIsNotNone(negative)
+        self.assertEqual(decision_signal(positive), "positive")
+        self.assertEqual(decision_signal(negative), "negative")
+
 
 if __name__ == "__main__":
     unittest.main()

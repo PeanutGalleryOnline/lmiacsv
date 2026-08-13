@@ -1,0 +1,144 @@
+{
+  "schema_version": "0.2.0",
+  "languages": [
+    "en",
+    "fr"
+  ],
+  "bilingual_pair_status": "complete",
+  "source_audit": [
+    {
+      "source_id": "noc-2011-structure-en",
+      "source_kind": "classification_structure",
+      "noc_version": "2011",
+      "language": "en",
+      "sha256": "b590ba6e311cf6b9d655fd4c6980aa1d4b1b44fabb60a98798b96f5bd6ab4dde",
+      "unit_group_count": 500
+    },
+    {
+      "source_id": "noc-2011-structure-fr",
+      "source_kind": "classification_structure",
+      "noc_version": "2011",
+      "language": "fr",
+      "sha256": "8de2e8aac31af978eb3ddd8854c3400be2099459918c826f0c2eabf5c8c35a3a",
+      "unit_group_count": 500
+    },
+    {
+      "source_id": "noc-2016-v1.3-structure-en",
+      "source_kind": "classification_structure",
+      "noc_version": "2016",
+      "language": "en",
+      "sha256": "aeba1328914aa6f81bb01ffac1e99cef0ef21a2c768685fbed71a4851dfa2dd6",
+      "unit_group_count": 500
+    },
+    {
+      "source_id": "noc-2016-v1.3-structure-fr",
+      "source_kind": "classification_structure",
+      "noc_version": "2016",
+      "language": "fr",
+      "sha256": "f1a04e29c77da2b33aecfc36c9d035dd602877d00492a05f7a661dd87ecf2a1a",
+      "unit_group_count": 500
+    },
+    {
+      "source_id": "noc-2021-v1.0-structure-en",
+      "source_kind": "classification_structure",
+      "noc_version": "2021",
+      "language": "en",
+      "sha256": "9d97fb39b9fceaeef3a10fe1ec719ad58f2af15810f80e004422dce3dd62bad6",
+      "unit_group_count": 516
+    },
+    {
+      "source_id": "noc-2021-v1.0-structure-fr",
+      "source_kind": "classification_structure",
+      "noc_version": "2021",
+      "language": "fr",
+      "sha256": "4eaf15f261a7c609122d0dfe191cc1bd3f0bc60f9d5ef6db1b63a218744425c7",
+      "unit_group_count": 516
+    },
+    {
+      "source_id": "noc-2016-v1.3-to-2021-v1.0-en",
+      "source_kind": "correspondence",
+      "language": "en",
+      "sha256": "38675f00f9cafdd88e5dd8004016e57c49fbd6504eb0cfb482f759e4c9399064",
+      "official_correspondence_row_count": 585,
+      "structure_title_mismatch_count": 0
+    },
+    {
+      "source_id": "noc-2016-v1.3-to-2021-v1.0-fr",
+      "source_kind": "correspondence",
+      "language": "fr",
+      "sha256": "2a53d77dac62933c2a118052d0a97be8214b746ce6d834954924fc3bbdd85b4e",
+      "official_correspondence_row_count": 585,
+      "structure_title_mismatch_count": 1
+    }
+  ],
+  "unit_group_count": 1516,
+  "unit_group_count_by_version": {
+    "2011": 500,
+    "2016": 500,
+    "2021": 516
+  },
+  "crosswalk_row_count": 1170,
+  "crosswalk_row_count_by_source_version": {
+    "2011": 585,
+    "2016": 585
+  },
+  "crosswalk_cardinality_counts": {
+    "many_to_many": 170,
+    "many_to_one": 88,
+    "one_to_many": 120,
+    "one_to_one": 792
+  },
+  "correspondence_title_mismatches": [
+    {
+      "language": "fr",
+      "source_code": "4313",
+      "target_code": "44200",
+      "title_role": "target",
+      "structure_title": "Combattants de première ligne des Forces armées canadiennes",
+      "correspondence_title": "Combattants/combattantes de première ligne des Forces armées canadiennes"
+    }
+  ],
+  "canonical_join_audit": {
+    "canonical_path": "data/full/employers.csv",
+    "canonical_sha256": "e6d03611267a0febfd38615427a92163d2e652e1603a51d609658c0152088f7c",
+    "canonical_record_count": 483546,
+    "blank_noc_code_record_count": 23425,
+    "unparsed_occupation_record_count": 20,
+    "join_status": "complete",
+    "coverage_by_version": [
+      {
+        "noc_version": "2011",
+        "official_unit_group_count": 500,
+        "observed_code_count": 480,
+        "matched_observed_code_count": 480,
+        "unmatched_observed_code_count": 0,
+        "unused_official_code_count": 20,
+        "canonical_records_with_code": 319395
+      },
+      {
+        "noc_version": "2016",
+        "official_unit_group_count": 500,
+        "observed_code_count": 0,
+        "matched_observed_code_count": 0,
+        "unmatched_observed_code_count": 0,
+        "unused_official_code_count": 500,
+        "canonical_records_with_code": 0
+      },
+      {
+        "noc_version": "2021",
+        "official_unit_group_count": 516,
+        "observed_code_count": 481,
+        "matched_observed_code_count": 481,
+        "unmatched_observed_code_count": 0,
+        "unused_official_code_count": 35,
+        "canonical_records_with_code": 140726
+      }
+    ],
+    "unmatched_codes": []
+  },
+  "limitations": [
+    "The LMIA source metadata identifies NOC 2011 through 2024 Q1 and NOC 2021 from 2024 Q2 onward.",
+    "NOC 2016 V1.3 is retained as the official bridge to NOC 2021, not assigned to LMIA rows that declare NOC 2011.",
+    "Crosswalk rows do not provide weights for splitting an observed count among multiple target codes."
+  ]
+}

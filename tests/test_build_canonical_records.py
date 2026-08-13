@@ -1,16 +1,25 @@
 from __future__ import annotations
 
 import unittest
+import csv
 from dataclasses import replace
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 from lmiacsv.build_canonical_records import (
-    CONFLICTING_2022_Q2_POSITIVE,
     CanonicalBuildError,
+    RESOLVED_2022_Q2_POSITIVE_EN,
+    RESOLVED_2022_Q2_POSITIVE_FR,
+    RESOLVED_2022_Q2_QUALITY_FLAG,
     SourcePlan,
     build_source_plans,
     canonical_records,
+    file_sha256,
     header_roles,
+    normalize_incorporate_status,
+    normalize_province,
+    normalize_stream,
+    source_rows,
 )
 
 
@@ -25,6 +34,7 @@ def plan(headers: list[str], *, decision: str = "positive", period: str = "2020-
             "download_url": "https://example.test/download",
             "decision": decision,
             "language": "en",
+            "title": {"en": "Employer list using National Occupational Classification (NOC) 2011"},
             "period": {
                 "key": period,
                 "year": year,
@@ -88,6 +98,20 @@ class HeaderAdapterTests(unittest.TestCase):
 
 
 class CanonicalRowTests(unittest.TestCase):
+    def test_french_source_categories_normalize_to_shared_values(self) -> None:
+        self.assertEqual(("Quebec", "QC"), normalize_province("Qu bec"))
+        self.assertEqual(
+            ("Outside Canada", "INT"), normalize_province("À l'extérieur du Canada")
+        )
+        self.assertEqual(
+            "Permanent Resident Only", normalize_stream("Résident permanent seulement")
+        )
+        self.assertEqual(
+            "Sole Proprietorship",
+            normalize_incorporate_status("Entreprise à propriétaire unique"),
+        )
+        self.assertEqual("Co-operative", normalize_incorporate_status("Coopérative"))
+
     def test_2014_grouped_province_rows_become_records_not_fake_headings(self) -> None:
         source = replace(
             plan(["Employer", "Address", "Positions"], period="2014"),
@@ -140,18 +164,26 @@ class CanonicalRowTests(unittest.TestCase):
         )
 
     def test_modern_source_keeps_lmia_and_position_semantics_distinct(self) -> None:
-        source = plan(
-            [
-                "Province/Territory",
-                "Program Stream",
-                "Employer",
-                "Address",
-                "Occupation",
-                "Incorporate Status",
-                "Approved LMIAs",
-                "Approved Positions",
-            ],
-            period="2025-q1",
+        source = replace(
+            plan(
+                [
+                    "Province/Territory",
+                    "Program Stream",
+                    "Employer",
+                    "Address",
+                    "Occupation",
+                    "Incorporate Status",
+                    "Approved LMIAs",
+                    "Approved Positions",
+                ],
+                period="2025-q1",
+            ),
+            catalogue={
+                **plan([], period="2025-q1").catalogue,
+                "title": {
+                    "en": "Employer list using National Occupational Classification (NOC) 2021"
+                },
+            },
         )
         rows = [
             (1, ["Report title"]),
@@ -162,64 +194,186 @@ class CanonicalRowTests(unittest.TestCase):
         record = list(canonical_records(source, rows))[0]
 
         self.assertEqual("approved_lmias", record["lmia_measure"])
+        self.assertEqual("high_wage", record["program_stream_key"])
+        self.assertEqual("incorporated", record["incorporate_status_key"])
         self.assertEqual(1, record["lmia_count"])
         self.assertEqual(0, record["position_count"])
         self.assertIn("zero_positions_preserved", record["quality_flags"])
 
-
-class QuarantineTests(unittest.TestCase):
-    def test_known_positive_resource_with_requested_headers_is_quarantined(self) -> None:
-        resource_id = CONFLICTING_2022_Q2_POSITIVE
-        catalogue_resource = {
-            "dataset_id": "positive-dataset",
-            "resource_id": resource_id,
-            "resource_page_url": "https://example.test/resource",
-            "download_url": "https://example.test/download",
-            "source_filename": "source.xlsx",
-            "format": "XLSX",
-            "decision": "positive",
-            "language": "en",
-            "period": {"key": "2022-q2", "year": 2022, "quarter": "Q2", "precision": "quarter"},
-        }
-        headers = [
-            "Province/Territory",
-            "Program Stream",
-            "Employer",
-            "Address",
-            "Occupation",
-            "Incorporate Status",
-            "Requested LMIAs",
-            "Requested Positions",
-        ]
-        census_resource = {
-            **catalogue_resource,
-            "selected_sheet": "Positive_EN",
-            "sheets": [
-                {
-                    "name": "Positive_EN",
-                    "header": {"row": 2, "values": headers},
-                    "estimated_data_rows": 15167,
-                }
+    def test_noc_version_comes_from_source_metadata_not_record_year(self) -> None:
+        source = plan(
+            [
+                "Province/Territory",
+                "Program Stream",
+                "Employer",
+                "Address",
+                "Occupation",
+                "Approved Positions",
             ],
-        }
-        raw_resource = {
-            **catalogue_resource,
-            "status": "downloaded",
-            "sha256": "b" * 64,
-            "catalogue_format": "XLSX",
-            "source_filename": "source.xlsx",
-        }
+            period="2024-q1",
+        )
+        rows = [
+            (1, ["Report title"]),
+            (2, source.header_values),
+            (3, ["Ontario", "High Wage", "Example", "Toronto", "6322-Cooks", 1]),
+        ]
 
-        plans, quarantines = build_source_plans(
-            {"resources": [catalogue_resource]},
-            {"resources": [census_resource]},
-            {"resources": [raw_resource]},
+        record = list(canonical_records(source, rows))[0]
+
+        self.assertEqual(record["noc_version"], "2011")
+
+
+class BilingualMeasureOverrideTests(unittest.TestCase):
+    def documents(
+        self,
+        directory: Path,
+        *,
+        french_positions: int = 1,
+    ) -> tuple[dict, dict, dict]:
+        period = {
+            "key": "2022-q2",
+            "year": 2022,
+            "quarter": "Q2",
+            "precision": "quarter",
+        }
+        definitions = [
+            {
+                "resource_id": RESOLVED_2022_Q2_POSITIVE_EN,
+                "language": "en",
+                "filename": "positive-en.csv",
+                "headers": [
+                    "Province/Territory",
+                    "Program Stream",
+                    "Employer",
+                    "Address",
+                    "Occupation",
+                    "Incorporate Status",
+                    "Requested LMIAs",
+                    "Requested Positions",
+                ],
+                "row": [
+                    "Ontario",
+                    "High Wage",
+                    "Example Inc.",
+                    "Toronto, ON M5V 1A1",
+                    "6322-Cooks",
+                    "Unknown",
+                    1,
+                    1,
+                ],
+            },
+            {
+                "resource_id": RESOLVED_2022_Q2_POSITIVE_FR,
+                "language": "fr",
+                "filename": "positive-fr.csv",
+                "headers": [
+                    "Province/Territoire",
+                    "Volet du programme",
+                    "Employeur",
+                    "Adresse",
+                    "Profession",
+                    "Incorporer le statut",
+                    "EIMT Approuvés",
+                    "Postes Approuvés",
+                ],
+                "row": [
+                    "Ontario",
+                    "Haut salaire",
+                    "Example Inc.",
+                    "Toronto, ON M5V 1A1",
+                    "6322-Cuisiniers",
+                    "Inconnu",
+                    1,
+                    french_positions,
+                ],
+            },
+        ]
+        catalogue_resources = []
+        census_resources = []
+        raw_resources = []
+        for definition in definitions:
+            path = directory / definition["filename"]
+            with path.open("w", encoding="utf-8", newline="") as handle:
+                writer = csv.writer(handle)
+                writer.writerow(definition["headers"])
+                writer.writerow(definition["row"])
+            catalogue = {
+                "dataset_id": "positive-dataset",
+                "resource_id": definition["resource_id"],
+                "resource_page_url": "https://example.test/resource",
+                "download_url": "https://example.test/download",
+                "source_filename": definition["filename"],
+                "format": "CSV",
+                "decision": "positive",
+                "language": definition["language"],
+                "title": {
+                    "en": "Positive employer list using NOC 2011",
+                    "fr": "Liste positive utilisant la CNP 2011",
+                },
+                "period": period,
+            }
+            census = {
+                **catalogue,
+                "selected_sheet": "CSV",
+                "selected_schema_signature": "schema",
+                "sha256": file_sha256(path),
+                "sheets": [
+                    {
+                        "name": "CSV",
+                        "header": {"row": 1, "values": definition["headers"]},
+                        "estimated_data_rows": 1,
+                    }
+                ],
+            }
+            raw = {
+                **catalogue,
+                "status": "downloaded",
+                "sha256": file_sha256(path),
+                "catalogue_format": "CSV",
+                "format": "CSV",
+                "format_matches_catalogue": True,
+                "source_filename": definition["filename"],
+                "archive_path": str(path),
+            }
+            catalogue_resources.append(catalogue)
+            census_resources.append(census)
+            raw_resources.append(raw)
+        return (
+            {"resources": catalogue_resources},
+            {"resources": census_resources},
+            {"resources": raw_resources},
         )
 
-        self.assertEqual([], plans)
-        self.assertEqual(1, len(quarantines))
-        self.assertEqual(0, quarantines[0]["canonical_records"])
-        self.assertIn("requested_lmia", quarantines[0]["reason"])
+    def test_requested_english_headers_use_matching_approved_french_semantics(self) -> None:
+        with TemporaryDirectory() as directory:
+            documents = self.documents(Path(directory))
+            plans, quarantines = build_source_plans(*documents)
+
+            self.assertEqual([], quarantines)
+            self.assertEqual(1, len(plans))
+            selected = plans[0]
+            self.assertEqual(
+                "normalized_with_bilingual_measure_override",
+                selected.disposition,
+            )
+            self.assertIn(RESOLVED_2022_Q2_QUALITY_FLAG, selected.anomaly_flags)
+            self.assertTrue(
+                selected.interpretation_evidence["normalized_record_multiset_match"]
+            )
+            with source_rows(selected) as rows:
+                record = next(canonical_records(selected, rows))
+            self.assertEqual("approved_lmias", record["lmia_measure"])
+            self.assertEqual("approved_positions", record["position_measure"])
+            self.assertIn(RESOLVED_2022_Q2_QUALITY_FLAG, record["quality_flags"])
+
+    def test_override_fails_closed_when_language_pair_differs(self) -> None:
+        with TemporaryDirectory() as directory:
+            documents = self.documents(Path(directory), french_positions=2)
+            with self.assertRaisesRegex(
+                CanonicalBuildError,
+                "records no longer match exactly",
+            ):
+                build_source_plans(*documents)
 
 
 if __name__ == "__main__":

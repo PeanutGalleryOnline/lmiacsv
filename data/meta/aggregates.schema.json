@@ -1,0 +1,42 @@
+{
+  "schema_version": "0.2.0",
+  "dimensions": {
+    "province_territory": "stable Canadian postal abbreviation or territory code",
+    "program_stream": "stable language-neutral key joined to translations.csv",
+    "source_language": "language of the parsed official source; normalized products use en"
+  },
+  "products": {
+    "positive-quarterly.csv": {
+      "grain": "decision quarter × province/territory × program stream",
+      "measure": {
+        "column": "positive_lmias",
+        "unit": "Labour Market Impact Assessments",
+        "scope": "positive decisions",
+        "period_basis": "LMIA decision date"
+      },
+      "source": "Official ESDC quarterly Table 14"
+    },
+    "positive-annual.csv": {
+      "grain": "decision year × province/territory × program stream",
+      "measure": {
+        "column": "positive_lmias",
+        "unit": "Labour Market Impact Assessments",
+        "scope": "positive decisions",
+        "period_basis": "LMIA decision date"
+      },
+      "source": "Official ESDC annual Table 14"
+    },
+    "positive-quarterly-national.csv": {
+      "grain": "decision quarter",
+      "measure": {
+        "column": "positive_lmias",
+        "formula": "sum of normalized Table 14 province/stream observations"
+      }
+    }
+  },
+  "non_claims": [
+    "Positive LMIAs are not approved positions, work permits, workers, or employers.",
+    "This product does not contain complete all-stream negative LMIA decisions.",
+    "No national LMIA approval or denial rate can be calculated from these files."
+  ]
+}

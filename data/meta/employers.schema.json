@@ -1,6 +1,6 @@
 {
-  "schema_version": "0.1.0",
-  "normalizer_version": "0.1.0",
+  "schema_version": "0.3.0",
+  "normalizer_version": "0.3.0",
   "format": "CSV UTF-8 with header",
   "primary_key": [
     "record_id"
@@ -85,6 +85,12 @@
       "description": "Cleaned and forward-filled program stream when supplied."
     },
     {
+      "name": "program_stream_key",
+      "type": "string",
+      "nullable": true,
+      "description": "Stable language-neutral key joined to translations.csv."
+    },
+    {
       "name": "employer_raw",
       "type": "string",
       "nullable": false,
@@ -130,7 +136,7 @@
       "name": "noc_version",
       "type": "string",
       "nullable": true,
-      "description": "NOC version inferred from code width and source year."
+      "description": "NOC version read from source metadata and validated against code width."
     },
     {
       "name": "noc_code",
@@ -161,6 +167,12 @@
       "type": "string",
       "nullable": true,
       "description": "Cleaned incorporate status when supplied."
+    },
+    {
+      "name": "incorporate_status_key",
+      "type": "string",
+      "nullable": true,
+      "description": "Stable language-neutral key joined to translations.csv."
     },
     {
       "name": "lmia_measure",
@@ -262,7 +274,7 @@
       "name": "source_disposition",
       "type": "string",
       "nullable": false,
-      "description": "normalized or recovered_official_alternate."
+      "description": "normalized, recovered_official_alternate, or normalized_with_bilingual_measure_override."
     },
     {
       "name": "quality_flags",
@@ -282,6 +294,22 @@
     "requested_lmias_on_negative_decisions": "Requested LMIA counts attached to negative-decision list rows where published.",
     "approved_positions": "Approved positions on positive-decision list rows.",
     "requested_positions_on_negative_decisions": "Requested positions attached to negative-decision list rows."
+  },
+  "interpretation_rules": {
+    "2022_q2_positive_english_measure_headers": {
+      "source_resource_id": "dd627095-614a-45df-a7ef-df0a4a46a812",
+      "paired_french_resource_id": "d93b17b3-4c84-45d0-8d4a-b44a54f733e6",
+      "source_header_labels": [
+        "Requested LMIAs",
+        "Requested Positions"
+      ],
+      "canonical_measure_labels": [
+        "approved_lmias",
+        "approved_positions"
+      ],
+      "basis": "The paired official French positive workbook labels the measures approved and must match the English workbook at language-neutral normalized-record and measure-total levels. The build fails closed if that evidence changes.",
+      "row_quality_flag": "english_requested_headers_interpreted_as_approved_from_matching_french_release"
+    }
   },
   "important_limit": "Employer-list rows are not application-level observations. The table must not be used to calculate an LMIA application approval or denial rate."
 }
