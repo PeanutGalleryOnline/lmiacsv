@@ -1,5 +1,7 @@
 node_modules/
 dist/
+build/
+*.egg-info/
 .astro/
 .venv/
 .DS_Store

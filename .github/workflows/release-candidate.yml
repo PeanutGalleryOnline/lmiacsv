@@ -1,0 +1,126 @@
+name: Release candidate
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-candidate-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PYTHONHASHSEED: "0"
+
+jobs:
+  reproduce:
+    name: Reproduce and package
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Check out the tagged revision and tags
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: "3.14"
+
+      - name: Install legacy-workbook support
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends libreoffice-calc
+
+      - name: Install the pinned project and development tools
+        run: python -m pip install --editable ".[dev]"
+
+      - name: Run offline quality gates before source access
+        run: |
+          python -m unittest discover -s tests
+          python -m ruff check lmiacsv tests
+          python -m lmiacsv release-verify
+
+      - name: Rebuild from committed source catalogues
+        run: |
+          lmiacsv fetch
+          lmiacsv census
+          lmiacsv build --fail-on-quarantine
+          lmiacsv aggregate-fetch
+          lmiacsv aggregate-build
+          lmiacsv bilingual-verify
+          lmiacsv translations-build
+          lmiacsv noc-fetch
+          lmiacsv noc-build
+          lmiacsv min-build
+
+      - name: Verify every generated product and source receipt
+        run: python -m lmiacsv release-verify --require-products
+
+      - name: Require reproduced metadata and manifests to match the tag
+        run: |
+          git diff --exit-code -- data/meta data/full/manifest.json data/min/manifest.json
+          git status --short
+
+      - name: Build and verify Python distributions
+        run: |
+          python -m build
+          python -m lmiacsv release-verify --dist-dir dist
+
+      - name: Determine candidate identity
+        id: candidate
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+            candidate="$GITHUB_REF_NAME"
+            project_version="$(python -c 'import pathlib, tomllib; print(tomllib.loads(pathlib.Path("pyproject.toml").read_text())["project"]["version"])')"
+            if [[ "$candidate" != "v$project_version" ]]; then
+              echo "Tag $candidate does not match project version $project_version" >&2
+              exit 1
+            fi
+          else
+            candidate="candidate-${GITHUB_SHA:0:12}"
+          fi
+          echo "name=$candidate" >> "$GITHUB_OUTPUT"
+          echo "source_date_epoch=$(git show -s --format=%ct HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Build deterministic release assets
+        env:
+          CANDIDATE_NAME: ${{ steps.candidate.outputs.name }}
+          SOURCE_DATE_EPOCH: ${{ steps.candidate.outputs.source_date_epoch }}
+        run: |
+          python -m lmiacsv release-verify \
+            --dist-dir dist \
+            --build-assets "$CANDIDATE_NAME" \
+            --revision "$GITHUB_SHA" \
+            --source-date-epoch "$SOURCE_DATE_EPOCH" \
+            --output-dir release
+
+      - name: Retain candidate assets for review
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-${{ steps.candidate.outputs.name }}
+          path: release/*
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+
+      - name: Create an unpublished draft release for a tag
+        if: github.ref_type == 'tag'
+        env:
+          CANDIDATE_NAME: ${{ steps.candidate.outputs.name }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$CANDIDATE_NAME" release/* \
+            --draft \
+            --generate-notes \
+            --title "${{ steps.candidate.outputs.name }}" \
+            --verify-tag

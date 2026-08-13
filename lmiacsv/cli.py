@@ -69,6 +69,10 @@ COMMANDS = {
         "lmiacsv.collect_2021q2_receipts",
         "refresh the dated 2021 Q2 negative-resource evidence bundle",
     ),
+    "release-verify": (
+        "lmiacsv.release_validation",
+        "verify repository evidence, products, distributions, and release assets",
+    ),
 }
 
 

@@ -137,6 +137,9 @@ Then run the source pipeline:
 
 # Run the deterministic test suite.
 .venv/bin/python -m unittest discover -s tests
+
+# Verify tracked JSON, evidence checksums, product manifests, and generated products.
+.venv/bin/lmiacsv release-verify --require-products
 ```
 
 The repository includes the dated evidence bundle and checksum-pinned recovered
@@ -213,6 +216,21 @@ they are already small and useful together. This is not a second normalization.
 `data/meta/min.schema.json` documents the derivations; each tier's tracked
 `manifest.json` records row counts, fields, sizes, and SHA-256 checksums while the
 generated CSVs remain ignored.
+
+## Release gates
+
+Every pull request and main-branch update is checked on Python 3.11 through 3.14. CI
+runs the tests and linter, parses the tracked JSON, verifies the durable evidence
+checksums, builds the Python distributions, and confirms that their licence metadata
+and legal notices are complete.
+
+The separate release-candidate workflow rebuilds every normalized product from the
+source identities committed in the candidate revision. It does not refresh the source
+catalogues. It fails if a source changed in place, a quarantine appears, a product
+does not match its manifest, or regenerated tracked metadata differs from the commit.
+A version tag creates only an unpublished draft GitHub Release; publication remains a
+manual decision after independent review. See [RELEASING.md](RELEASING.md) for the
+full protocol.
 
 ## License
 
