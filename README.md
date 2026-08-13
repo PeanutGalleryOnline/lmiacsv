@@ -216,5 +216,17 @@ generated CSVs remain ignored.
 
 ## License
 
-An open-source license has not yet been selected. Add the chosen license before the
-repository is published publicly; no license terms are inferred here.
+The project's original software and documentation are licensed under the
+[Apache License 2.0](LICENSE).
+
+Government source data, normalized data derived from it, catalogue snapshots, and
+captured source evidence are not relicensed under Apache-2.0. They remain subject to
+the applicable [Open Government Licence – Canada](https://open.canada.ca/en/open-government-licence-canada),
+[Statistics Canada Open Licence](https://www.statcan.gc.ca/en/terms-conditions/open-licence),
+and any source-specific third-party rights or exclusions. See
+[DATA_LICENSES.md](DATA_LICENSES.md) for the path-level boundary, source records, and
+required attributions, and [NOTICE](NOTICE) for notices that must accompany
+redistributions.
+
+`lmiacsv` is an independent project. It is not affiliated with or endorsed by the
+Government of Canada, Employment and Social Development Canada, or Statistics Canada.
